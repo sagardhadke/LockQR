@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LockQR</string>
+    <string name="splash_info">Generate QR Code 100% Automatically and Free \n App Developer Sagar Dhadke</string>
 </resources>
