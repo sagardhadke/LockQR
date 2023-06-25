@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/qrcode"
         android:layout_width="210dp"
         android:layout_height="210dp"
         android:layout_marginTop="32dp"
@@ -32,11 +32,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/text"
+        android:id="@+id/EditText"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_bg"
         android:gravity="center"
@@ -44,10 +44,10 @@
         android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/qrcode"
+        android:autofillHints="name" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/generator"
@@ -62,7 +62,7 @@
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
+        app:layout_constraintTop_toBottomOf="@+id/EditText" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/shareqr"
