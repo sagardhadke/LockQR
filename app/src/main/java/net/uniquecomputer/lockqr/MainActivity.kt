@@ -1,7 +1,9 @@
 package net.uniquecomputer.lockqr
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -67,10 +69,24 @@ class MainActivity : AppCompatActivity() {
 
         binding.share.setOnClickListener {
 
+            //share qr code to other apps
+            val bitmap = binding.qrcode.drawable.toBitmap()
+            val uri = getImageUri(bitmap)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "image/**"
+            intent.putExtra(Intent.EXTRA_TEXT,"Download This Amazing App QR Code Generator App")
+            intent.putExtra(Intent.EXTRA_STREAM,uri)
+            startActivity(Intent.createChooser(intent,"Share QR Code"))
+
 
 
         }
 
+    }
+
+    private fun getImageUri(bitmap: Bitmap): Uri {
+        val path = MediaStore.Images.Media.insertImage(contentResolver,bitmap,"QR Code Generated",null)
+        return Uri.parse(path)
     }
 
     private fun saveQrCode() {

@@ -1,7 +1,10 @@
 package net.uniquecomputer.lockqr
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import net.uniquecomputer.lockqr.databinding.ActivitySplashBinding
 
 class Splash : AppCompatActivity() {
@@ -12,5 +15,12 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+       Handler(Looper.getMainLooper()).postDelayed({
+           startActivity(Intent(this,MainActivity::class.java))
+           finish()
+       },3000)
+
     }
+
 }
