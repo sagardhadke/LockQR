@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
             if (text.isEmpty()){
                 binding.EditText.error = "Please Enter Any Text"
-                Toast.makeText(this,"Please Enter Your Name",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Please Enter Any Text To Generate QR Code",Toast.LENGTH_LONG).show()
                 binding.EditText.requestFocus()
             }else{
 
