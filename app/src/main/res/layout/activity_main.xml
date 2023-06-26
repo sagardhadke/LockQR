@@ -36,8 +36,9 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:autofillHints="name"
         android:background="@drawable/edit_bg"
         android:gravity="center"
         android:hint="Enter Your Text"
@@ -46,8 +47,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrcode"
-        android:autofillHints="name" />
+        app:layout_constraintTop_toBottomOf="@+id/qrcode" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/generator"
@@ -56,7 +56,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#5CB85C"
+        android:backgroundTint="@color/text_background"
         android:text="Generate"
         android:textColor="@color/white"
         android:textSize="21sp"
@@ -64,18 +64,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditText" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/shareqr"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#D9534F"
-        android:text="Share QR Code"
-        android:textColor="@color/white"
-        android:textSize="21sp"
+    <ImageView
+        android:id="@+id/download"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/download"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/share"
+        app:layout_constraintTop_toBottomOf="@+id/generator" />
+
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/share"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/download"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generator" />
+
+    <TextView
+        android:id="@+id/share_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Share QR Code"
+        android:textColor="@color/text_background"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/download_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share" />
+
+    <TextView
+        android:id="@+id/download_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Download QR Code"
+        android:textColor="@color/text_background"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/share_text"
+        app:layout_constraintTop_toBottomOf="@+id/download" />
+
+    <!--    <com.google.android.material.button.MaterialButton-->
+    <!--        android:id="@+id/shareqr"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="52dp"-->
+    <!--        android:layout_marginStart="32dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="32dp"-->
+    <!--        android:backgroundTint="#D9534F"-->
+    <!--        android:text="Share QR Code"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="21sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/generator" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,15 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.isVisible
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
-import com.google.zxing.qrcode.encoder.QRCode
 import net.uniquecomputer.lockqr.databinding.ActivityMainBinding
+import java.io.File
+import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,12 +24,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         binding.generator.setOnClickListener {
 
-            binding.shareqr.isEnabled = false
-
             val text = binding.EditText.text.toString().trim()
+            binding.EditText.clearFocus()
+            binding.EditText.isCursorVisible = false
+
 
             if (text.isEmpty()){
                 binding.EditText.error = "Please Enter Any Text"
@@ -35,13 +39,60 @@ class MainActivity : AppCompatActivity() {
 
                 val bitmap = generateQrCode(text)
                 binding.qrcode.setImageBitmap(bitmap)
-                binding.shareqr.isEnabled = true
+//                binding.shareqr.isEnabled = true
+                binding.share.isVisible = true
+                binding.shareText.isVisible = true
+                binding.download.isVisible = true
+                binding.downloadText.isVisible = true
+
+                binding.download.setOnClickListener {
+
+                    //get user permission to save file
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED){
+                            val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            requestPermissions(permission,1000)
+                        }else{
+                            saveQrCode()
+                        }
+                    }else{
+                        saveQrCode()
+                    }
+
+                }
 
             }
 
         }
 
+        binding.share.setOnClickListener {
+
+
+
+        }
+
     }
+
+    private fun saveQrCode() {
+        val bitmap = binding.qrcode.drawable.toBitmap()
+        val filename = "${System.currentTimeMillis()}.jpg"
+        val externalCacheDir = getExternalFilesDir(null)
+
+        MediaStore.Images.Media.insertImage(contentResolver,bitmap,filename,"QR Code Generated")
+
+        var path = externalCacheDir
+        val file = File(path,filename)
+        try {
+            val out = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,out)
+            out.flush()
+            out.close()
+            Toast.makeText(this,"QR Code Saved",Toast.LENGTH_LONG).show()
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+    }
+
 
     private fun generateQrCode(text: String): Bitmap? {
 
