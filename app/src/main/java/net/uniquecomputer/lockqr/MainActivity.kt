@@ -41,11 +41,9 @@ class MainActivity : AppCompatActivity() {
 
                 val bitmap = generateQrCode(text)
                 binding.qrcode.setImageBitmap(bitmap)
-//                binding.shareqr.isEnabled = true
+                binding.textView.text = "Congratulations! \n You've Created a QR Code!"
                 binding.share.isVisible = true
-                binding.shareText.isVisible = true
                 binding.download.isVisible = true
-                binding.downloadText.isVisible = true
 
                 binding.download.setOnClickListener {
 
