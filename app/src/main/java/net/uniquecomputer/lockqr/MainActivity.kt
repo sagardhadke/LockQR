@@ -4,10 +4,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
 import com.google.zxing.BarcodeFormat
@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
             if (text.isEmpty()){
                 binding.EditText.error = "Please Enter Any Text"
-                Toast.makeText(this,"Please Enter Any Text To Generate QR Code",Toast.LENGTH_LONG).show()
                 binding.EditText.requestFocus()
+
             }else{
 
                 val bitmap = generateQrCode(text)
