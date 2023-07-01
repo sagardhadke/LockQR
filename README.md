@@ -42,6 +42,7 @@ QR Code Generator
 
 - Generate QR Code 100% Free
 - Light/Dark Mode App
+- 📣 100% FREE & No Ads!
 - You can generate all types of QR codes, including website links, custom text, WiFi password, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
 - Social media QR codes can also be generated for: Instagram, Facebook, WhatsApp, Twitter, Youtube, and Spotify.
 
