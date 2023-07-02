@@ -36,9 +36,14 @@ class Web : AppCompatActivity() {
             binding.spinner.requestFocus()
         }else{
             binding.spinner.selectedItemPosition == 1
-            binding.spinner.setBackgroundColor(resources.getColor(R.color.green))
+            binding.spinner.setBackgroundColor(resources.getColor(R.color.http))
+
+        }
+        if (binding.spinner.selectedItemPosition == 2){
+            binding.spinner.setBackgroundColor(resources.getColor(R.color.https))
 
         }
 
+        return validate()
     }
 }
