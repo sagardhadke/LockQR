@@ -52,5 +52,13 @@ class Web : AppCompatActivity() {
             binding.spinner.setBackgroundColor(resources.getColor(R.color.https))
 
         }
+
+        if (binding.editText.text.isEmpty()){
+            binding.editText.error = "Please Enter a Valid Web Address"
+            binding.editText.requestFocus()
+        }else{
+            binding.editText.clearFocus()
+            binding.editText.isCursorVisible = false
+        }
     }
 }

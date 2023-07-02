@@ -37,6 +37,8 @@
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:autofillHints="clipboard"
+        android:gravity="center"
         android:background="@drawable/edittext_web"
         app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
