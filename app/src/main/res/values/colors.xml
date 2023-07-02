@@ -8,8 +8,8 @@
     <color name="text_background">#212121</color>
     <color name="card_background">#FFFFFF</color>
 
-    //download logo
     <color name="download_color">#000000</color>
-    <color name="green">#00FF00</color>
-    <color name="red">#FF0000</color>
+
+    <color name="http">#FF6555</color>
+    <color name="https">#DAE021</color>
 </resources>
