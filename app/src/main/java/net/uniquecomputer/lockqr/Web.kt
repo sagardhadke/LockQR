@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
+import androidx.core.content.res.ResourcesCompat
 import net.uniquecomputer.lockqr.databinding.ActivityWebBinding
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 class Web : AppCompatActivity() {
     lateinit var binding: ActivityWebBinding
@@ -23,7 +26,13 @@ class Web : AppCompatActivity() {
         binding.spinner.setSelection(0)
 
         binding.checkwebid.setOnClickListener {
-            Toast.makeText(this, "Please Select a Valid Option", Toast.LENGTH_SHORT).show()
+            MotionToast.createToast(this,
+                "Failed ☹️",
+                "Please Select a Valid Option!",
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this,R.font.poppins_semibold))
             validate()
         }
 
@@ -43,7 +52,5 @@ class Web : AppCompatActivity() {
             binding.spinner.setBackgroundColor(resources.getColor(R.color.https))
 
         }
-
-        return validate()
     }
 }

@@ -51,5 +51,8 @@ dependencies {
     //QR Code
     implementation 'com.google.zxing:core:3.5.1'
 
+    //MotionToast
+    implementation 'com.github.Spikeysanju:MotionToast:1.4'
+
 
 }
