@@ -1,15 +1,17 @@
 package net.uniquecomputer.lockqr
 
-import android.nfc.Tag
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import net.uniquecomputer.lockqr.databinding.ActivityWebBinding
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
+
 
 class Web : AppCompatActivity() {
     lateinit var binding: ActivityWebBinding
@@ -61,4 +63,6 @@ class Web : AppCompatActivity() {
             binding.editText.isCursorVisible = false
         }
     }
+
+
 }
