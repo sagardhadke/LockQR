@@ -17,5 +17,11 @@ class Home : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
+        binding.websitecard.setOnClickListener {
+
+            startActivity(Intent(this, Web::class.java))
+
+        }
+
     }
 }

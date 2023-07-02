@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerItems" >
+
+     <item name="0">Select Protocol</item>
+     <item name="1">HTTP</item>
+     <item name="2">HTTPS</item>
+
+    </string-array>
+</resources>

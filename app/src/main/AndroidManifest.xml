@@ -21,6 +21,9 @@
         android:theme="@style/Theme.LockQR"
         tools:targetApi="31">
         <activity
+            android:name=".Web"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
