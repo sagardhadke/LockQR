@@ -23,15 +23,6 @@ class Splash : AppCompatActivity() {
        },2500)
 
 
-        //check dark_mode key value in shared preferences
-        val sharedPref = getSharedPreferences("dark_mode", MODE_PRIVATE)
-        val darkMode = sharedPref.getBoolean("dark_mode", false)
-        if (darkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-
     }
 
 }

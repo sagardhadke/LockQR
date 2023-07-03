@@ -24,22 +24,19 @@ class SettingsActivity : AppCompatActivity() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-
-             val darkMode = findPreference<SwitchPreferenceCompat>("dark_mode")
-             darkMode?.setOnPreferenceChangeListener { preference, newValue ->
-                 if (newValue == true) {
-                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                 } else {
-                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                 }
-                 true
-             }
+            val nightMode = AppCompatDelegate.getDefaultNightMode()
+            val themeSwitch = findPreference<SwitchPreferenceCompat>("theme_switch")
 
 
-            val sharedPref = activity?.getSharedPreferences("dark_mode", MODE_PRIVATE)
-            val editor = sharedPref?.edit()
-            editor?.putBoolean("dark_mode", darkMode?.isChecked!!)
-            editor?.apply()
+            themeSwitch?.setOnPreferenceChangeListener { _, newValue ->
+                if (newValue as Boolean) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+                true
+            }
+
 
 
         }
