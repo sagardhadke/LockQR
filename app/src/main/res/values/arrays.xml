@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerItems" >
+    <string-array name="spinnerItems">
 
-     <item name="0">Select Protocol</item>
-     <item name="1">HTTP</item>
-     <item name="2">HTTPS</item>
+        <item name="0">Select Protocol</item>
+        <item name="1">HTTP</item>
+        <item name="2">HTTPS</item>
 
+    </string-array>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
     </string-array>
 </resources>

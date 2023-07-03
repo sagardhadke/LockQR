@@ -1,5 +1,6 @@
 package net.uniquecomputer.lockqr
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ class Home : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.textCard.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
@@ -23,5 +25,12 @@ class Home : AppCompatActivity() {
 
         }
 
+        binding.settings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
     }
+
 }
+
+
