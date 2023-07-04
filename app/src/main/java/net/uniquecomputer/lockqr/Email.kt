@@ -32,7 +32,6 @@ class Email : AppCompatActivity() {
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.emailEt.error = "Please Enter Email"
                 binding.emailEt.requestFocus()
-                binding.emailEt.isCursorVisible = false
             } else if (content.isEmpty()) {
                 binding.contentEmail.error = "Please Enter Content"
                 binding.contentEmail.requestFocus()
@@ -103,10 +102,10 @@ class Email : AppCompatActivity() {
         }
     }
 
-    private fun generateQrCode(text: String, content: String): Bitmap? {
+    private fun generateQrCode(mail: String, content: String): Bitmap? {
 
         val writer = QRCodeWriter()
-        val bitMatrix = writer.encode(text + content, BarcodeFormat.QR_CODE,512,512)
+        val bitMatrix = writer.encode("Email:- $mail\n Content:- $content", BarcodeFormat.QR_CODE,512,512)
         val width = bitMatrix.width
         val height = bitMatrix.height
         val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
