@@ -70,6 +70,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/text" />
 
                 <TextView
@@ -106,6 +107,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/website" />
 
                 <TextView
@@ -142,6 +144,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/email" />
 
                 <TextView
@@ -177,6 +180,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/message" />
 
                 <TextView
@@ -212,6 +216,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/wifi" />
 
                 <TextView
@@ -247,6 +252,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/contact" />
 
                 <TextView
