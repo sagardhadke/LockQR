@@ -38,9 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="10dp"
         android:alignmentMode="alignMargins"
         android:columnCount="3"
         android:columnOrderPreserved="false"
@@ -69,8 +67,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/text" />
 
                 <TextView
@@ -106,8 +104,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/website" />
 
                 <TextView
@@ -143,8 +141,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/email" />
 
                 <TextView
@@ -179,8 +177,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/message" />
 
                 <TextView
@@ -215,13 +213,14 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/wifi" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Wi-Fi"
@@ -251,8 +250,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/contact" />
 
                 <TextView
@@ -262,7 +261,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Contact"
                     android:textColor="@color/text_background"
-                    android:textSize="21sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -299,9 +298,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="10dp"
         android:alignmentMode="alignMargins"
         android:columnCount="3"
         android:columnOrderPreserved="false"
@@ -309,14 +306,14 @@
         android:rowCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" >
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/youtube"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/youtube"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -331,17 +328,17 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/youtube" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Youtube"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/text_background"
                     android:textSize="21sp"
                     android:textStyle="bold" />
@@ -351,10 +348,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/whatsapp"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/whatsapp"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -369,17 +366,17 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/whatsapp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Whatsapp"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/text_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -389,10 +386,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/facebook"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/facebook"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -407,17 +404,17 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/facebook" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Facebook"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/text_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -427,10 +424,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/twitter"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/twitter"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -452,10 +449,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Twitter"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/text_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -465,10 +462,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/linedin"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/linedin"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -483,19 +480,19 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/linkedin" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Linkedin"
                     android:textColor="@color/text_background"
                     android:textSize="18sp"
-                    android:layout_marginTop="10dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -503,10 +500,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/instagram"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"
-            android:id="@+id/instagram"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
@@ -521,19 +518,19 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:src="@drawable/instagram" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Instagram"
                     android:textColor="@color/text_background"
-                    android:textSize="18sp"
-                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
