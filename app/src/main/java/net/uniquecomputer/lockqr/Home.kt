@@ -29,6 +29,10 @@ class Home : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
+        binding.email.setOnClickListener {
+            startActivity(Intent(this, Email::class.java))
+        }
+
     }
 
 }
