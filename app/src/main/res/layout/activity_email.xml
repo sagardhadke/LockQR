@@ -30,7 +30,7 @@
             android:id="@+id/qrcode_mail"
             android:layout_width="210dp"
             android:layout_height="210dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/qr_code"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
