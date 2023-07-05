@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerItems">
+    <string-array name="protocol">
 
-        <item name="0">Select Protocol</item>
-        <item name="1">HTTP</item>
-        <item name="2">HTTPS</item>
+        <item>HTTP</item>
+        <item>HTTPS</item>
 
     </string-array>
     <!-- Reply Preference -->
