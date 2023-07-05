@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             binding.EditText.clearFocus()
             binding.EditText.isCursorVisible = false
 
-
             if (text.isEmpty()){
                 binding.EditText.error = "Please Enter Any Text"
                 binding.EditText.requestFocus()
@@ -47,7 +46,6 @@ class MainActivity : AppCompatActivity() {
 
                 binding.download.setOnClickListener {
 
-                    //get user permission to save file
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED){
                             val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -67,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.share.setOnClickListener {
 
-            //share qr code to other apps
+
             val bitmap = binding.qrcode.drawable.toBitmap()
             val uri = getImageUri(bitmap)
             val intent = Intent(Intent.ACTION_SEND)
