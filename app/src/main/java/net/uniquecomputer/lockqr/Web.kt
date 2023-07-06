@@ -39,8 +39,11 @@ class Web : AppCompatActivity() {
         binding.generateWeb.setOnClickListener {
 
             val web = binding.webEt.text.toString()
-            binding.webEt.setText(web)
-            binding.webEt.clearFocus()
+
+            val protocol = binding.autoprotocol.text.toString()
+            val www = "://www."
+            val merge = protocol + www + web
+
             checkprotocol()
             if (!Patterns.WEB_URL.matcher(web).matches()) {
                 binding.webEt.error = "Please Enter Website Url"
@@ -54,7 +57,7 @@ class Web : AppCompatActivity() {
                     ResourcesCompat.getFont(this,R.font.poppins_semibold))
             } else {
                 binding.webEt.error = null
-                val bitmap = generateQrCode(web)
+                val bitmap = generateQrCode(merge)
                 binding.webQrCode.setImageBitmap(bitmap)
                 binding.webText.text = "Congratulations! \n You've Created a QR Code!"
                 binding.shareWeb.isVisible = true
@@ -108,8 +111,8 @@ class Web : AppCompatActivity() {
             binding.autoprotocol.requestFocus()
         } else {
             binding.autoprotocol.error = null
-            binding.webEt.setText(protocol)
-            binding.autoprotocol.clearFocus()
+//            binding.webEt.setText(protocol)
+//            binding.autoprotocol.clearFocus()
             generateQrCode(protocol)
         }
 
