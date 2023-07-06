@@ -9,11 +9,14 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Patterns
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import net.uniquecomputer.lockqr.databinding.ActivityEmailBinding
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.io.File
 import java.io.FileOutputStream
 
@@ -31,9 +34,23 @@ class Email : AppCompatActivity() {
 
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.emailEt.error = "Please Enter Email"
+                MotionToast.createToast(this,
+                    "Failed ☹️",
+                    "Please Enter a Valid Email!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this,R.font.poppins_semibold))
                 binding.emailEt.requestFocus()
             } else if (content.isEmpty()) {
                 binding.contentEmail.error = "Please Enter Content"
+                MotionToast.createToast(this,
+                    "Failed ☹️",
+                    "Please Enter a Valid Content!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this,R.font.poppins_semibold))
                 binding.contentEmail.requestFocus()
             } else {
 
