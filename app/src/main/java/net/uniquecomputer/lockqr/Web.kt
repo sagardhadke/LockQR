@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
@@ -40,12 +41,19 @@ class Web : AppCompatActivity() {
             val web = binding.webEt.text.toString()
             binding.webEt.setText(web)
             binding.webEt.clearFocus()
-
-            if (web.isEmpty()) {
+            checkprotocol()
+            if (!Patterns.WEB_URL.matcher(web).matches()) {
                 binding.webEt.error = "Please Enter Website Url"
                 binding.webEt.requestFocus()
-                checkprotocol()
+                MotionToast.createToast(this,
+                    "Failed ☹️",
+                    "Please Enter a Valid Url!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this,R.font.poppins_semibold))
             } else {
+                binding.webEt.error = null
                 val bitmap = generateQrCode(web)
                 binding.webQrCode.setImageBitmap(bitmap)
                 binding.webText.text = "Congratulations! \n You've Created a QR Code!"
@@ -69,6 +77,10 @@ class Web : AppCompatActivity() {
 
         }
 
+        binding.webEt.setOnClickListener {
+            checkprotocol()
+        }
+
         binding.shareWeb.setOnClickListener {
             val bitmap = binding.webQrCode.drawable.toBitmap()
             val uri = getImageUri(bitmap)
@@ -89,21 +101,19 @@ class Web : AppCompatActivity() {
             MotionToast.createToast(this,
                 "Failed ☹️",
                 "Please Select a Valid Option!",
-                MotionToastStyle.ERROR,
+                MotionToastStyle.WARNING,
                 MotionToast.GRAVITY_BOTTOM,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.poppins_semibold))
             binding.autoprotocol.requestFocus()
         } else {
-
+            binding.autoprotocol.error = null
             binding.webEt.setText(protocol)
             binding.autoprotocol.clearFocus()
             generateQrCode(protocol)
         }
 
-
     }
-
 
 
     private fun generateQrCode(web: String): Bitmap? {

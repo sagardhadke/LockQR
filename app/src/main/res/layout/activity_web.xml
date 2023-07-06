@@ -16,7 +16,7 @@
         android:hint="Protocol"
         app:hintTextColor="@color/text_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/web_qr_code">
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <AutoCompleteTextView
             android:id="@+id/autoprotocol"
@@ -51,8 +51,9 @@
         android:layout_marginEnd="16dp"
         android:autofillHints="clipboard"
         android:background="@drawable/edittext_web"
-        android:gravity="start|center_vertical"
         android:paddingLeft="10dp"
+        android:hint="google.com"
+        android:paddingStart="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout"
@@ -82,6 +83,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/web_text"
         app:srcCompat="@drawable/qr_code" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="Note:- Don't Use https:// or http:// in URL"
+        android:textColor="@color/text_background"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/web_qr_code" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/download_web"
