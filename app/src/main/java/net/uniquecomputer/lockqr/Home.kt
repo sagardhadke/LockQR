@@ -33,6 +33,10 @@ class Home : AppCompatActivity() {
             startActivity(Intent(this, Email::class.java))
         }
 
+        binding.sms.setOnClickListener {
+            startActivity(Intent(this, Sms::class.java))
+        }
+
     }
 
 }
