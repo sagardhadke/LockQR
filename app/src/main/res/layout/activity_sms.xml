@@ -72,7 +72,7 @@
         android:autofillHints="name"
         android:background="@drawable/edit_bg"
         android:gravity="left"
-        android:hint="Please input email content"
+        android:hint="Please fill in the content"
         android:inputType="text"
         android:padding="20dp"
         android:textColor="@color/white"
