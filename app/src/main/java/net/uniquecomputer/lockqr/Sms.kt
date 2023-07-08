@@ -17,12 +17,12 @@ class Sms : AppCompatActivity() {
         val binding = ActivitySmsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//       val countrycode = binding.ccp.selectedCountryCodeWithPlus
-//        ccp.registerCarrierNumberEditText(binding.smsNumber)
-//        ccp.setNumberAutoFormattingEnabled(true)
-//        ccp.setPhoneNumberValidityChangeListener(CountryCodePicker.PhoneNumberValidityChangeListener {
-//            binding.smsNumber.error = if (it) null else "Enter a valid number"
-//        })
+       val countrycode = binding.ccp.selectedCountryCodeWithPlus
+        ccp.registerCarrierNumberEditText(binding.smsNumber)
+        ccp.setNumberAutoFormattingEnabled(true)
+        ccp.setPhoneNumberValidityChangeListener(CountryCodePicker.PhoneNumberValidityChangeListener {
+            binding.smsNumber.error = if (it) null else "Enter a valid number"
+        })
 
         binding.smsGenerate.setOnClickListener {
             validation()
