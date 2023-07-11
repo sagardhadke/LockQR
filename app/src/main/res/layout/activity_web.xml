@@ -50,6 +50,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:autofillHints="clipboard"
+        android:inputType="textWebEditText"
         android:background="@drawable/edittext_web"
         android:paddingLeft="15dp"
         android:hint="google.com"
