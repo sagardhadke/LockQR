@@ -30,7 +30,7 @@ QR Code Generator
 ```
 
 
-## 1.1 App Version Features
+## 1.1 App Version Features | live 
 
 - 📣 100% FREE & No Ads!
 - Easily create your own unlimited non-expiring QR codes in a matter of seconds
