@@ -25,14 +25,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.generator.setOnClickListener {
+
             val text = binding.EditText.text.toString().trim()
             binding.EditText.clearFocus()
             binding.EditText.isCursorVisible = false
+
             if (text.isEmpty()){
                 binding.EditText.error = "Please Enter Any Text"
                 binding.EditText.requestFocus()
+
             }else{
+
                 val bitmap = generateQrCode(text)
                 binding.qrcode.setImageBitmap(bitmap)
                 binding.textView.text = "Congratulations! \n You've Created a QR Code!"
@@ -40,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 binding.download.isVisible = true
 
                 binding.download.setOnClickListener {
+
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED){
                             val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -50,19 +56,28 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         saveQrCode()
                     }
+
                 }
+
             }
+
         }
 
         binding.share.setOnClickListener {
+
+
             val bitmap = binding.qrcode.drawable.toBitmap()
             val uri = getImageUri(bitmap)
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "image/**"
-            intent.putExtra(Intent.EXTRA_TEXT,"Download This Amazing QR Code Generator App")
+            intent.putExtra(Intent.EXTRA_TEXT,"Download This Amazing App QR Code Generator App")
             intent.putExtra(Intent.EXTRA_STREAM,uri)
             startActivity(Intent.createChooser(intent,"Share QR Code"))
+
+
+
         }
+
     }
 
     private fun getImageUri(bitmap: Bitmap): Uri {
@@ -94,7 +109,6 @@ class MainActivity : AppCompatActivity() {
     private fun generateQrCode(text: String): Bitmap? {
 
         val writer = QRCodeWriter()
-        //define qr code size 512x512
         val bitMatrix = writer.encode(text,BarcodeFormat.QR_CODE,512,512)
         val width = bitMatrix.width
         val height = bitMatrix.height
