@@ -25,7 +25,6 @@
             android:layout_weight="1"
             android:inputType="none"
             android:padding="10dp" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

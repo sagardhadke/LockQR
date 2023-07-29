@@ -21,6 +21,9 @@
         android:theme="@style/Theme.LockQR"
         tools:targetApi="31">
         <activity
+            android:name=".QRCode"
+            android:exported="false" />
+        <activity
             android:name=".Sms"
             android:exported="false" />
         <activity

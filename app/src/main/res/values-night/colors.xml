@@ -3,6 +3,7 @@
     <color name="button_background">#08b690</color>
     <color name="app_background">#292f3f</color>
     <color name="text_background">#08b690</color>
+    <color name="input">#FFFFFF</color>
     <color name="card_background">#192233</color>
     <color name="download_color">#FFFFFF</color>
 </resources>
