@@ -26,6 +26,7 @@ class ParentAdapter(private val context: Context,private val parentList: List<Pa
         holder.childRecyclerview.layoutManager = GridLayoutManager(context,3)
         val adapter = ChildAdapter(context,parentItem.mList)
         holder.childRecyclerview.adapter = adapter
+
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +34,3 @@ class ParentAdapter(private val context: Context,private val parentList: List<Pa
     }
 
 }
-
-
-

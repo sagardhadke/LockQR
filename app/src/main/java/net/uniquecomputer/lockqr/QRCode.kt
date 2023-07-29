@@ -12,6 +12,5 @@ class QRCode : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
     }
 }
