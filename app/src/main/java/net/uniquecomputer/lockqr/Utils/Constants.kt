@@ -1,8 +1,11 @@
 package net.uniquecomputer.lockqr.Utils
 
+import android.view.View
 import net.uniquecomputer.lockqr.ChildItem
 import net.uniquecomputer.lockqr.ParentItem
 import net.uniquecomputer.lockqr.R
+import net.uniquecomputer.lockqr.databinding.ActivityMainBinding
+import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 
 class Constants {
 
@@ -43,6 +46,9 @@ class Constants {
 
             parentItem.add(ParentItem("Other", child3))
         }
+
+
+
     }
 
 }

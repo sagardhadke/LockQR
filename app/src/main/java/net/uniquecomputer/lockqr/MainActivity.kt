@@ -18,11 +18,8 @@ class MainActivity : AppCompatActivity() {
         binding.mainRecyclerview.setHasFixedSize(true)
         binding.mainRecyclerview.isNestedScrollingEnabled = false
         binding.mainRecyclerview.layoutManager = LinearLayoutManager(this)
-
         Constants.addDataList()
         val adapter = ParentAdapter(this, parentList = Constants.parentItem)
         binding.mainRecyclerview.adapter = adapter
     }
-
-
 }

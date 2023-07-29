@@ -24,21 +24,9 @@
             android:name=".QRCode"
             android:exported="false" />
         <activity
-            android:name=".Sms"
-            android:exported="false" />
-        <activity
-            android:name=".Email"
-            android:exported="false" />
-        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".Web"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="false" />
         <activity
             android:name=".Splash"
             android:exported="true">
