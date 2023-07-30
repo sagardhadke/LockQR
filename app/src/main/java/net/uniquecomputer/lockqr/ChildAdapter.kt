@@ -11,7 +11,7 @@ import net.uniquecomputer.lockqr.Utils.Constants
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import net.uniquecomputer.lockqr.databinding.ChildIteamBinding
 
-class ChildAdapter(private val context: Context, private val childItem: List<ChildItem>) :
+class ChildAdapter(private val context: Context, private val childItem: List<ChildItem>,private val activityQrcodeBinding: ActivityQrcodeBinding? = null) :
     RecyclerView.Adapter<ChildAdapter.ChildViewHolder>() {
 
     inner class ChildViewHolder(private val binding: ChildIteamBinding): RecyclerView.ViewHolder(binding.root){
@@ -36,6 +36,28 @@ class ChildAdapter(private val context: Context, private val childItem: List<Chi
             val intent = Intent(context, QRCode::class.java)
             context.startActivity(intent)
 
+            when(position) {
+                0 -> {
+                   activityQrcodeBinding?.name?.visibility = View.VISIBLE
+                }
+
+                1 -> {
+                    Toast.makeText(
+                        context,
+                        "Clicked on ${childItem[position].title}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                2 -> {
+                    Toast.makeText(
+                        context,
+                        "Clicked on ${childItem[position].title}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
         }
     }
 }
