@@ -31,6 +31,7 @@ class ChildAdapter(private val context: Context, private val childItem: List<Chi
         holder.itemView.setOnClickListener {
             val intent = Intent(context, QRCode::class.java)
             intent.putExtra("position", position)
+            intent.putExtra("title", item.title)
             context.startActivity(intent)
         }
     }
