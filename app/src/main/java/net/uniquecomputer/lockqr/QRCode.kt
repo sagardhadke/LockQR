@@ -9,7 +9,9 @@ import android.provider.MediaStore
 import android.text.InputType
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
@@ -34,8 +36,29 @@ class QRCode : AppCompatActivity() {
         when (val position = intent.getIntExtra("position", 0)) {
             0 -> {
                 binding.name.isVisible = true
-                Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
+                binding.name.hint = "Text"
+                binding.generateText.text = "Generate QR Code for Text"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
 
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+                    binding.name.clearFocus()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Any Text"
+                        binding.name.requestFocus()
+                    } else {
+                        val bitmap = generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
             }
             1 -> {
                 binding.name.hint = "Address"
@@ -92,13 +115,9 @@ class QRCode : AppCompatActivity() {
     private fun downloadQr() {
         binding.download.setOnClickListener {
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED){
-                    val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    requestPermissions(permission,1000)
-                }else{
-                    saveQrCode()
-                }
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED){
+                val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                requestPermissions(permission,1000)
             }else{
                 saveQrCode()
             }
@@ -143,7 +162,8 @@ class QRCode : AppCompatActivity() {
         {
             for (y in 0 until height)
             {
-                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+//                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+                bitmap.setPixel(x,y,if (bitMatrix[x,y]) ContextCompat.getColor(this,R.color.qr_code) else Color.WHITE)
             }
         }
         return bitmap
