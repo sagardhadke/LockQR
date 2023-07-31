@@ -103,8 +103,40 @@ class QRCode : AppCompatActivity() {
                 }
             }
             2 -> {
-                binding.download.isVisible = true
-                Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
+                binding.name.isVisible = true
+                binding.address.isVisible = true
+                binding.name.hint = "E-mail"
+                binding.address.hint = "Content"
+                binding.generateText.text = "Generate QR Code for Email"
+                binding.nameEt.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+                    val content = binding.addressEt.text.toString().trim()
+
+                    if (!Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
+                        binding.name.error = "Please Enter Valid Email"
+                        binding.name.requestFocus()
+                    }else if (content.isEmpty()) {
+                        binding.address.error = "Please Enter Content"
+                        binding.address.requestFocus()
+                    }
+                    else {
+                        binding.name.error = null
+                        binding.address.error = null
+                        binding.name.clearFocus()
+                        binding.address.clearFocus()
+                        val bitmap = generateQrCodemail(text, content)
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
             }
             8 -> {
                 Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()
@@ -198,6 +230,22 @@ class QRCode : AppCompatActivity() {
         }catch (e:Exception){
             e.printStackTrace()
         }
+    }
+    private fun generateQrCodemail(mail: String, content: String): Bitmap? {
+
+        val writer = QRCodeWriter()
+        val bitMatrix = writer.encode("Email:- $mail \n Content:- $content", BarcodeFormat.QR_CODE,512,512)
+        val width = bitMatrix.width
+        val height = bitMatrix.height
+        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
+        for (x in 0 until width)
+        {
+            for (y in 0 until height)
+            {
+                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+            }
+        }
+        return bitmap
     }
 
     private fun generateQrCode(text: String): Bitmap? {
