@@ -39,15 +39,16 @@ class QRCode : AppCompatActivity() {
                 binding.name.hint = "Text"
                 binding.generateText.text = "Generate QR Code for Text"
                 binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
-                    binding.name.clearFocus()
 
                     if (binding.nameEt.text!!.isEmpty()) {
-                        binding.name.error = "Please Enter Any Text"
+                        binding.name.error = "Please Enter Your Text"
                         binding.name.requestFocus()
                     } else {
+                        binding.name.clearFocus()
                         val bitmap = generateQrCode(text)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
