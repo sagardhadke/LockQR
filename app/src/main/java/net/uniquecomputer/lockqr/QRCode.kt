@@ -28,14 +28,12 @@ class QRCode : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQrcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         checkposition()
-
     }
 
     private fun checkposition() {
 
-        when (val position = intent.getIntExtra("position", 0)) {
+        when (intent.getIntExtra("position", 0)) {
             0 -> {
                 binding.name.isVisible = true
                 binding.name.hint = "Text"
@@ -138,8 +136,41 @@ class QRCode : AppCompatActivity() {
 
                 }
             }
-            8 -> {
-                Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()
+            3 -> {
+                binding.name.isVisible = true
+                binding.address.isVisible = true
+                binding.name.hint = "Recipient"
+                binding.address.hint = "Message"
+                binding.generateText.text = "Generate QR Code for Sms"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val recipient = binding.nameEt.text.toString().trim()
+                    val message = binding.addressEt.text.toString().trim()
+
+                    if (!Patterns.PHONE.matcher(recipient).matches()) {
+                        binding.name.error = "Please Enter Valid Number"
+                        binding.name.requestFocus()
+                    }else if (message.isEmpty()) {
+                        binding.address.error = "Please Enter Message"
+                        binding.address.requestFocus()
+                    }
+                    else {
+                        binding.name.error = null
+                        binding.address.error = null
+                        binding.name.clearFocus()
+                        binding.address.clearFocus()
+                        val bitmap = generateQrCodeSms(recipient, message)
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
             }
         }
 
@@ -235,6 +266,23 @@ class QRCode : AppCompatActivity() {
 
         val writer = QRCodeWriter()
         val bitMatrix = writer.encode("Email:- $mail \n Content:- $content", BarcodeFormat.QR_CODE,512,512)
+        val width = bitMatrix.width
+        val height = bitMatrix.height
+        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
+        for (x in 0 until width)
+        {
+            for (y in 0 until height)
+            {
+                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+            }
+        }
+        return bitmap
+    }
+
+    private fun generateQrCodeSms(recipient: String, message: String): Bitmap? {
+
+        val writer = QRCodeWriter()
+        val bitMatrix = writer.encode("Recipient:- $recipient \n Message:- $message", BarcodeFormat.QR_CODE,512,512)
         val width = bitMatrix.width
         val height = bitMatrix.height
         val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
