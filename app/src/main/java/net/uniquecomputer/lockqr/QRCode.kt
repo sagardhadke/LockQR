@@ -1,11 +1,13 @@
 package net.uniquecomputer.lockqr
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R.attr.password
 import android.os.Bundle
-import android.view.View
+import android.text.InputType
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
+
 
 class QRCode : AppCompatActivity() {
     private lateinit var binding: ActivityQrcodeBinding
@@ -26,14 +28,21 @@ class QRCode : AppCompatActivity() {
                 Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
             }
             1 -> {
-                binding.address.isVisible = true
+                binding.name.hint = "Address"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
+
+                binding.name.isVisible = true
                 Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
             }
             2 -> {
                 binding.download.isVisible = true
                 Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
             }
+            8 -> {
+                Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
     }
 }
