@@ -46,6 +46,9 @@
             android:hint="Name"
             android:visibility="gone"
             app:boxBackgroundMode="outline"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/text_background"
+            app:boxStrokeColor="#4CAF50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qrcode">

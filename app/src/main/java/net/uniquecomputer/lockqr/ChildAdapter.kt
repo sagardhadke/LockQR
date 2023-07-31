@@ -3,15 +3,11 @@ package net.uniquecomputer.lockqr
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import net.uniquecomputer.lockqr.databinding.ChildIteamBinding
 
-class ChildAdapter(private val context: Context, private val childItem: List<ChildItem>, private val activityQrcodeBinding: ActivityQrcodeBinding? = null) :
-    RecyclerView.Adapter<ChildAdapter.ChildViewHolder>() {
+class ChildAdapter(private val context: Context, private val childItem: List<ChildItem>) : RecyclerView.Adapter<ChildAdapter.ChildViewHolder>() {
 
     inner class ChildViewHolder(private val binding: ChildIteamBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.childIteamText
@@ -34,13 +30,8 @@ class ChildAdapter(private val context: Context, private val childItem: List<Chi
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, QRCode::class.java)
+            intent.putExtra("position", position)
             context.startActivity(intent)
-
-            when (position) {
-                0 -> activityQrcodeBinding?.name?.visibility = View.VISIBLE
-                1 -> Toast.makeText(context, "Clicked on ${item.title}", Toast.LENGTH_SHORT).show()
-                2 -> Toast.makeText(context, "Clicked on ${item.title}", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 }
