@@ -7,6 +7,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.InputType
+import android.util.Patterns
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -62,11 +64,43 @@ class QRCode : AppCompatActivity() {
                 }
             }
             1 -> {
-                binding.name.hint = "Address"
-                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
 
+                val protocol = resources.getStringArray(R.array.protocol)
+                val arrayAdapter = ArrayAdapter(this, R.layout.dropdown, protocol)
+                binding.autoprotocol.setAdapter(arrayAdapter)
                 binding.name.isVisible = true
-                Toast.makeText(this, "${position}", Toast.LENGTH_SHORT).show()
+                binding.protocol.isVisible = true
+                binding.note.isVisible = true
+                binding.name.hint = "Website"
+                binding.generateText.text = "Generate QR Code for Website"
+                binding.nameEt.inputType = InputType.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT
+                binding.name.clearFocus()
+
+                binding.name.setOnClickListener {
+                    binding.nameEt.hint = "google.com"
+                }
+
+                binding.generator.setOnClickListener {
+                    val web = binding.nameEt.text.toString().trim()
+                    val protocol = binding.autoprotocol.text.toString()
+                    val www = "://www."
+                    val text = protocol + www + web
+                    checkprotocol()
+                    if (!Patterns.WEB_URL.matcher(web).matches()) {
+                        binding.name.error = "Please Enter Valid Website Url"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+                }
             }
             2 -> {
                 binding.download.isVisible = true
@@ -98,6 +132,20 @@ class QRCode : AppCompatActivity() {
         }
 
     }
+
+    private fun checkprotocol() {
+        val protocol = binding.autoprotocol.text.toString()
+        if (protocol.isEmpty()) {
+            binding.autoprotocol.error = "Please Select a Protocol"
+            binding.autoprotocol.requestFocus()
+            Toast.makeText(this, "Please Select a Protocol", Toast.LENGTH_SHORT).show()
+        } else {
+            binding.autoprotocol.error = null
+            generateQrCode(protocol)
+        }
+
+    }
+
 
     private fun shareQr() {
         binding.share.setOnClickListener {

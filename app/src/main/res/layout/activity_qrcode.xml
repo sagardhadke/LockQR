@@ -36,6 +36,45 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/generate_text" />
 
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="Note:- Don't Use https:// or www. in URL"
+            android:textColor="@color/text_background"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qrcode" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/protocol"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:hint="Protocol"
+            android:visibility="gone"
+            app:hintTextColor="@color/text_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/note">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoprotocol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:padding="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name"
@@ -52,13 +91,14 @@
             app:hintTextColor="@color/text_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qrcode">
+            app:layout_constraintTop_toBottomOf="@+id/protocol">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
+                android:autofillHints="clipboard"
                 android:textColor="@color/input" />
         </com.google.android.material.textfield.TextInputLayout>
 
