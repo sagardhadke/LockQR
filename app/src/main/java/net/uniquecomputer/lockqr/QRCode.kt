@@ -172,6 +172,70 @@ class QRCode : AppCompatActivity() {
 
                 }
             }
+            4 ->{
+                binding.name.isVisible = true
+                binding.email.isVisible = true
+                binding.name.hint = "Network Name (SSID)"
+                binding.email.hint = "Password"
+                binding.generateText.text = "Generate QR Code for Wifi"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val network_name = binding.nameEt.text.toString().trim()
+                    val pass = binding.emailEt.text.toString().trim()
+
+                    if (network_name.isEmpty()) {
+                        binding.name.error = "Please Enter Network Name"
+                        binding.name.requestFocus()
+                    }else if (pass.isEmpty()) {
+                        binding.email.error = "Please Enter Your Wifi Password"
+                        binding.email.requestFocus()
+                    }
+                    else {
+                        binding.name.error = null
+                        binding.address.error = null
+                        binding.name.clearFocus()
+                        binding.address.clearFocus()
+                        val bitmap = generateQrCodeWifi(network_name, pass)
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+            5 ->{
+                binding.name.isVisible = true
+                binding.name.hint = "Phone Number"
+                binding.generateText.text = "Generate QR Code for Phone Number"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (!Patterns.PHONE.matcher(text).matches()) {
+                        binding.name.error = "Please Enter Valid Number"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+
         }
 
         when(val title = intent.getStringExtra("title")) {
@@ -194,6 +258,22 @@ class QRCode : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun generateQrCodeWifi(networkName: String, pass: String): Bitmap? {
+        val writer = QRCodeWriter()
+        val bitMatrix = writer.encode("Network name:- $networkName\n Password:- $pass", BarcodeFormat.QR_CODE,512,512)
+        val width = bitMatrix.width
+        val height = bitMatrix.height
+        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
+        for (x in 0 until width)
+        {
+            for (y in 0 until height)
+            {
+                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+            }
+        }
+        return bitmap
     }
 
     private fun checkprotocol() {
