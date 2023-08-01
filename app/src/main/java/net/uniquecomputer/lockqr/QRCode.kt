@@ -1,8 +1,8 @@
 package net.uniquecomputer.lockqr
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,12 +11,9 @@ import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.qrcode.QRCodeWriter
+import net.uniquecomputer.lockqr.Utils.Helper
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import java.io.File
 import java.io.FileOutputStream
@@ -49,7 +46,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -89,7 +86,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -125,7 +122,7 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = generateQrCodemail(text, content)
+                        val bitmap = Helper.generateQrCodemail(text, content)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
@@ -161,7 +158,7 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = generateQrCodeSms(recipient, message)
+                        val bitmap = Helper.generateQrCodeSms(recipient, message)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
@@ -197,7 +194,7 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = generateQrCodeWifi(network_name, pass)
+                        val bitmap = Helper.generateQrCodeWifi(network_name, pass)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
@@ -223,7 +220,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -241,40 +238,26 @@ class QRCode : AppCompatActivity() {
         when(val title = intent.getStringExtra("title")) {
             "Youtube" -> {
                 binding.name.isVisible = false
-                Toast.makeText(this, "${title}", Toast.LENGTH_SHORT).show()
+
             }
             "Whatsapp" -> {
                 binding.name.hint = "Whatsapp"
                 binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER
                 binding.name.isVisible = true
-                Toast.makeText(this, "${title}", Toast.LENGTH_SHORT).show()
+
             }
             "Facebook" -> {
                 binding.download.isVisible = true
-                Toast.makeText(this, "${title}", Toast.LENGTH_SHORT).show()
+
             }
             "Twitter" -> {
-                Toast.makeText(this, "${title}", Toast.LENGTH_SHORT).show()
+
             }
         }
 
     }
 
-    private fun generateQrCodeWifi(networkName: String, pass: String): Bitmap? {
-        val writer = QRCodeWriter()
-        val bitMatrix = writer.encode("Network name:- $networkName\n Password:- $pass", BarcodeFormat.QR_CODE,512,512)
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
-        for (x in 0 until width)
-        {
-            for (y in 0 until height)
-            {
-                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
-            }
-        }
-        return bitmap
-    }
+
 
     private fun checkprotocol() {
         val protocol = binding.autoprotocol.text.toString()
@@ -284,7 +267,7 @@ class QRCode : AppCompatActivity() {
             Toast.makeText(this, "Please Select a Protocol", Toast.LENGTH_SHORT).show()
         } else {
             binding.autoprotocol.error = null
-            generateQrCode(protocol)
+            Helper.generateQrCode(protocol)
         }
 
     }
@@ -341,56 +324,5 @@ class QRCode : AppCompatActivity() {
         }catch (e:Exception){
             e.printStackTrace()
         }
-    }
-    private fun generateQrCodemail(mail: String, content: String): Bitmap? {
-
-        val writer = QRCodeWriter()
-        val bitMatrix = writer.encode("Email:- $mail \n Content:- $content", BarcodeFormat.QR_CODE,512,512)
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
-        for (x in 0 until width)
-        {
-            for (y in 0 until height)
-            {
-                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
-            }
-        }
-        return bitmap
-    }
-
-    private fun generateQrCodeSms(recipient: String, message: String): Bitmap? {
-
-        val writer = QRCodeWriter()
-        val bitMatrix = writer.encode("Recipient:- $recipient \n Message:- $message", BarcodeFormat.QR_CODE,512,512)
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
-        for (x in 0 until width)
-        {
-            for (y in 0 until height)
-            {
-                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
-            }
-        }
-        return bitmap
-    }
-
-    private fun generateQrCode(text: String): Bitmap? {
-
-        val writer = QRCodeWriter()
-        val bitMatrix = writer.encode(text, BarcodeFormat.QR_CODE,512,512)
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val bitmap = Bitmap.createBitmap(width,height, Bitmap.Config.RGB_565)
-        for (x in 0 until width)
-        {
-            for (y in 0 until height)
-            {
-//                bitmap.setPixel(x,y,if (bitMatrix[x,y]) Color.BLACK else Color.WHITE)
-                bitmap.setPixel(x,y,if (bitMatrix[x,y]) ContextCompat.getColor(this,R.color.qr_code) else Color.WHITE)
-            }
-        }
-        return bitmap
     }
 }
