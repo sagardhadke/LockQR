@@ -232,6 +232,106 @@ class QRCode : AppCompatActivity() {
 
                 }
             }
+            6 ->{
+                binding.name.isVisible = true
+                binding.phone.isVisible = true
+                binding.email.isVisible = true
+                binding.company.isVisible = true
+                binding.generateText.text = "Generate QR Code for Contact"
+                binding.jobTitle.isVisible = true
+                binding.address.isVisible = true
+
+                binding.generator.setOnClickListener {
+                    val name = binding.nameEt.text.toString().trim()
+                    val phone = binding.phoneEt.text.toString().trim()
+                    val email = binding.emailEt.text.toString().trim()
+                    val company = binding.companyEt.text.toString().trim()
+                    val jobTitle = binding.jobTitleEt.text.toString().trim()
+                    val address = binding.addressEt.text.toString().trim()
+
+                    if (name.isEmpty()) {
+                        binding.name.error = "Please Enter Name"
+                        binding.name.requestFocus()
+                    }else if (!Patterns.PHONE.matcher(phone).matches()) {
+                        binding.phone.error = "Please Enter Phone Number"
+                        binding.phone.requestFocus()
+                    }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        binding.email.error = "Please Enter Email"
+                        binding.email.requestFocus()
+                    }else if (company.isEmpty()) {
+                        binding.company.error = "Please Enter Company Name"
+                        binding.company.requestFocus()
+                    }else if (jobTitle.isEmpty()) {
+                        binding.jobTitle.error = "Please Enter Job Title"
+                        binding.jobTitle.requestFocus()
+                    }else if (address.isEmpty()) {
+                        binding.address.error = "Please Enter Address"
+                        binding.address.requestFocus()
+                    }
+                    else {
+                        binding.name.error = null
+                        binding.phone.error = null
+                        binding.email.error = null
+                        binding.company.error = null
+                        binding.jobTitle.error = null
+                        binding.address.error = null
+                        binding.name.clearFocus()
+                        binding.phone.clearFocus()
+                        binding.email.clearFocus()
+                        binding.company.clearFocus()
+                        binding.jobTitle.clearFocus()
+                        binding.address.clearFocus()
+                        val bitmap = Helper.generateQrCodeContact(name, phone, email, company, jobTitle, address)
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+            7->{
+                binding.name.isVisible = true
+                binding.jobTitle.isVisible = true
+                binding.address.isVisible = true
+                binding.generateText.text = "Generate QR Code for Calendar"
+                binding.name.hint = "Event Name"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val event = binding.nameEt.text.toString().trim()
+                    val location = binding.jobTitleEt.text.toString().trim()
+                    val address = binding.addressEt.text.toString().trim()
+
+                    if (event.isEmpty()) {
+                        binding.name.error = "Please Enter Event Name"
+                        binding.name.requestFocus()
+                    } else if (address.isEmpty()) {
+                        binding.address.error = "Please Enter Event Address"
+                        binding.address.requestFocus()
+                    } else if (location.isEmpty()) {
+                        binding.jobTitle.error = "Please Enter Your Location"
+                        binding.jobTitle.requestFocus()
+                    } else {
+                        binding.name.error = null
+                        binding.address.error = null
+                        binding.jobTitle.error = null
+                        binding.name.clearFocus()
+                        binding.address.clearFocus()
+                        binding.jobTitle.clearFocus()
+                        val bitmap = Helper.generateQrCodeCalendar(event, location, address)
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+                }
+            }
 
         }
 

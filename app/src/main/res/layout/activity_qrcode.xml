@@ -123,7 +123,7 @@
                 android:id="@+id/phone_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textColor="@color/input" />
         </com.google.android.material.textfield.TextInputLayout>
 

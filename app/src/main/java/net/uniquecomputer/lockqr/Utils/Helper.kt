@@ -81,5 +81,46 @@ class Helper {
             return bitmap
         }
 
+        fun generateQrCodeContact(name: String, phone: String, email: String, company: String, jobTitle: String, address: String): Bitmap? {
+
+                val writer = QRCodeWriter()
+                val bitMatrix = writer.encode(
+                    "Name:- $name \n Phone:- $phone \n Email:- $email \n Company:- $company \n Job Title:- $jobTitle \n Address:- $address",
+                    BarcodeFormat.QR_CODE,
+                    512,
+                    512
+                )
+                val width = bitMatrix.width
+                val height = bitMatrix.height
+                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
+                for (x in 0 until width) {
+                    for (y in 0 until height) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
+                }
+                return bitmap
+        }
+
+        fun generateQrCodeCalendar(event: String, location: String, address: String): Bitmap? {
+
+                val writer = QRCodeWriter()
+                val bitMatrix = writer.encode(
+                    "Event:- $event \n Location:- $location \n Address:- $address",
+                    BarcodeFormat.QR_CODE,
+                    512,
+                    512
+                )
+                val width = bitMatrix.width
+                val height = bitMatrix.height
+                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
+                for (x in 0 until width) {
+                    for (y in 0 until height) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
+                }
+                return bitmap
+        }
+
+
     }
 }
