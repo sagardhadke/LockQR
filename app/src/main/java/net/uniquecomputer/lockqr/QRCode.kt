@@ -739,7 +739,7 @@ class QRCode : AppCompatActivity() {
             val uri = getImageUri(bitmap)
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "image/**"
-            intent.putExtra(Intent.EXTRA_TEXT,"I am Generating This Amazing QR Code using Pocket QR App \n 1️⃣ 100% FREE & No Ads! \n 2️⃣ Easily create your own unlimited non-expiring QR codes in a matter of seconds \n 3️⃣ Custom Any Text \n 4️⃣  Download QR Code \n 5️⃣   Share QR Code to Any Social Media Platform \n Made in India app. Click the link to download now: https://rb.gy/du9t9")
+            intent.putExtra(Intent.EXTRA_TEXT,"I am Generating This Amazing QR Code using Lock QR App \n 1️⃣ 100% FREE & No Ads! \n 2️⃣ Easily create your own unlimited non-expiring QR codes in a matter of seconds \n 3️⃣ Custom Any Text \n 4️⃣  Download QR Code \n 5️⃣   Share QR Code to Any Social Media Platform \n Made in India app. Click the link to download now: https://rb.gy/du9t9")
             intent.putExtra(Intent.EXTRA_STREAM,uri)
             startActivity(Intent.createChooser(intent,"Share QR Code"))
 

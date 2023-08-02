@@ -17,10 +17,10 @@ class Splash : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       Handler(Looper.getMainLooper()).postDelayed({
-           startActivity(Intent(this,MainActivity::class.java))
-           finish()
-       },2500)
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, 3000)
 
 
     }

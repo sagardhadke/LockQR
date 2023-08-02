@@ -58,4 +58,7 @@ dependencies {
     //Country Code
     implementation 'com.hbb20:ccp:2.7.2'
 
+    //LOtti animation
+    implementation "com.airbnb.android:lottie:6.1.0"
+
 }
