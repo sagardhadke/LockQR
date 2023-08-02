@@ -23,10 +23,6 @@
             android:name=".QRCode"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings" />
-        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>
