@@ -335,23 +335,238 @@ class QRCode : AppCompatActivity() {
 
         }
 
-        when(val title = intent.getStringExtra("title")) {
+        when(intent.getStringExtra("title")) {
             "Youtube" -> {
-                binding.name.isVisible = false
+                binding.name.isVisible = true
+                binding.name.hint = "Youtube Link"
+                binding.generateText.text = "Generate QR Code for Youtube"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Youtube Link"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
 
             }
             "Whatsapp" -> {
-                binding.name.hint = "Whatsapp"
-                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER
                 binding.name.isVisible = true
+                binding.protocol.isVisible = false
+                binding.note.isVisible = false
+                binding.name.hint = "Whatsapp Number"
+                binding.generateText.text = "Generate QR Code for Whatsapp"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_NUMBER
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Whatsapp Number"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
 
             }
             "Facebook" -> {
-                binding.download.isVisible = true
+                binding.name.isVisible = true
+                binding.name.hint = "FaceBook"
+                binding.address.isVisible = false
+                binding.generateText.text = "Generate QR Code for FaceBook"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter FaceBook Username"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
 
             }
             "Twitter" -> {
+                binding.name.isVisible = true
+                binding.name.hint = "Twitter"
+                binding.address.isVisible = false
+                binding.generateText.text = "Generate QR Code for Twitter"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
 
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Twitter Username"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+            "Linkedin" -> {
+                binding.name.isVisible = true
+                binding.name.hint = "Linkedin"
+                binding.email.isVisible = false
+                binding.generateText.text = "Generate QR Code for Linkedin"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Linkedin url"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+            "Instagram" -> {
+                binding.name.isVisible = true
+                binding.name.hint = "Instagram Username"
+                binding.generateText.text = "Generate QR Code for Instagram"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Instagram Username"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+            "Telegram" -> {
+                binding.phone.isVisible = false
+                binding.email.isVisible = false
+                binding.company.isVisible = false
+                binding.jobTitle.isVisible = false
+                binding.address.isVisible = false
+                binding.name.isVisible = true
+                binding.name.hint = "Telegram Username"
+                binding.generateText.text = "Generate QR Code for Telegram"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Your Telegram Username"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
+            }
+
+            "Messenger" -> {
+                binding.name.isVisible = true
+                binding.jobTitle.isVisible = false
+                binding.address.isVisible = false
+                binding.name.hint = "Messenger"
+                binding.generateText.text = "Generate QR Code for Messenger"
+                binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
+                binding.name.clearFocus()
+
+                binding.generator.setOnClickListener {
+                    val text = binding.nameEt.text.toString().trim()
+
+                    if (binding.nameEt.text!!.isEmpty()) {
+                        binding.name.error = "Please Enter Your Messenger Url"
+                        binding.name.requestFocus()
+                    } else {
+                        binding.name.clearFocus()
+                        val bitmap = Helper.generateQrCode(text)
+                        binding.name.error = null
+                        binding.qrcode.setImageBitmap(bitmap)
+                        binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
+                        binding.share.isVisible = true
+                        binding.download.isVisible = true
+                        downloadQr()
+                        shareQr()
+                    }
+
+                }
             }
         }
 
