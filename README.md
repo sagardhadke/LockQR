@@ -1,16 +1,23 @@
+<p align="center">
+    <img src="https://github.com/SagarDhadke/LockQR/assets/70995022/997ca991-4773-4652-87dd-ceb9ad38f00f"
+        height="130">
+</p>
 
-# LockQR: Effortless QR Code Generation, Free and Shareable
+<h1 align="center">LockQR: Effortless QR Code Generation, Free and Shareable</h1>
 
-LockQR is a powerful QR code app that makes generating QR codes a breeze. With its automatic and user-friendly interface, you can create QR codes quickly and easily, completely free of charge. Whether you need QR codes for websites, contact information, or promotional materials, LockQR has got you covered. Additionally, sharing your QR codes on social media platforms is seamless. With just a few taps, you can download your QR codes and effortlessly share them on popular social media platforms, expanding your reach and connecting with your audience like never before. Unlock the potential of QR codes with LockQR, the ultimate tool for convenience and versatility.
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+</p>
 
-
-
-![Logo](https://github.com/SagarDhadke/LockQR/assets/70995022/997ca991-4773-4652-87dd-ceb9ad38f00f)
-
+<p align="center">  
+🗡️ LockQR is a powerful and user-friendly QR code app that enables you to generate QR codes quickly and easily. It's free and perfect for websites, contact info, and promotional materials. Sharing on social media is seamless too, expanding your reach and connecting with your audience effortlessly. Unlock the potential of QR codes with LockQR, the ultimate tool for convenience and versatility.
+</p>
+</br>
 
 ## Screenshots
 
-![App Screenshot](https://github.com/SagarDhadke/LockQR/assets/70995022/cea2be12-7c62-4014-9dbf-d2ef1d10ed65)
+![App Screenshot](https://github.com/SagarDhadke/LockQR/assets/70995022/c9399873-27d8-4025-a757-733fb72701cd)
 
 ## Color Reference
 
