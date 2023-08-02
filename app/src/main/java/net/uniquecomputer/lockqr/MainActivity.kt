@@ -35,4 +35,5 @@ class MainActivity : AppCompatActivity() {
         val adapter = ParentAdapter(this, parentList = Constants.parentItem)
         binding.mainRecyclerview.adapter = adapter
     }
+
 }
