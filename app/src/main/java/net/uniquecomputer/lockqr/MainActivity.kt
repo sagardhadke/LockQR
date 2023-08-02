@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.settings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-            Toast.makeText(this, "This Features is currently unavailable \n In Maintenance mode", Toast.LENGTH_LONG).show()
-        }
-
         binding.mainRecyclerview.setHasFixedSize(true)
         binding.mainRecyclerview.isNestedScrollingEnabled = false
         binding.mainRecyclerview.layoutManager = LinearLayoutManager(this)

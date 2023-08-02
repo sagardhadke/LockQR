@@ -1,9 +1,4 @@
 <resources>
     <string name="app_name">LockQR</string>
     <string name="splash_info">Generate QR Code 100% Automatically and Free \n App Developer Sagar Dhadke</string>
-    <string name="title_activity_settings">SettingsActivity</string>
-
-
-    <string name="dark_mode">Dark Mode</string>
-    <string name="truen_on">Turn On Dark Mode</string>
 </resources>
