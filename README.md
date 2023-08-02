@@ -8,6 +8,7 @@
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+    <a href="https://sagardhadke.github.io/LockQR/"><img alt="API" src="https://img.shields.io/badge/Download_App-1K+-red"/></a>
 </p>
 
 <p align="center">  
@@ -37,24 +38,23 @@ QR Code Generator
 ```
 
 
-## 1.1 App Version Features | live 
+## 1.1 App Version Features
 
 - 📣 100% FREE & No Ads!
 - Easily create your own unlimited non-expiring QR codes in a matter of seconds
 - Custom Text
 - Download QR Code 
-- Share QR Code to Any Social Media Platfrom
+- Share QR Code to Any Social Media platform
 
-## Comming Soon 1.2 App Version Features
+## 1.2 App Version Features
 
 - Generate QR Code 100% Free
 - Light/Dark Mode App
 - 📣 100% FREE & No Ads!
-- You can generate all types of QR codes, including website links, custom text, WiFi password, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
-- Social media QR codes can also be generated for: Instagram, Facebook, WhatsApp, Twitter, Youtube, and Spotify.
-
-![App Screenshot](https://github.com/SagarDhadke/LockQR/assets/70995022/5ad1a63c-27d5-475c-bb0f-636a88c20618)
-
+- Animation in Splash Screen
+- Smooth Ui/Experience
+- You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
+- Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
 
 ## Feedback
@@ -70,3 +70,20 @@ If you have any feedback, please reach out to us at peaceunique2003@gmail.com
 
 
 [![Bug me a Coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Donate&style=flat-square)](https://www.buymeacoffee.com/sagardhadke)
+
+## License:
+```
+    Copyright 2023 Sagar Dhadke
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+```
