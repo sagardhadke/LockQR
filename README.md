@@ -29,12 +29,18 @@
 
 
 
-## QR Code Librarie 
+## QR Code Libraries and Lottie Animation
 
 QR Code Generator 
 
 ```bash
    implementation 'com.google.zxing:core:3.5.1'
+```
+
+Lottie Animations
+
+```bash
+   implementation "com.airbnb.android:lottie:6.1.0"
 ```
 
 
