@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
             private const val DARK_STATUS = "io.github.manuelernesto.DARK_STATUS"
         }
         private val preferences = PreferenceManager.getDefaultSharedPreferences(context!!)
-        var darkMode = preferences.getInt(DARK_STATUS, 0)
+        var darkMode = preferences.getInt(DARK_STATUS, 2)
             set(value) = preferences.edit().putInt(DARK_STATUS, value).apply()
     }
 
