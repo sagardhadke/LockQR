@@ -62,6 +62,10 @@ Lottie Animations
 - You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
 - Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
+## 1.3 App Version Features
+
+- 😊 Major Bug Fix in Home Layout.
+- Added UI Dark/Light System Default Mode Changing Option in Home Layout
 
 ## Feedback
 
