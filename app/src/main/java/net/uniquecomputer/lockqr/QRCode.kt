@@ -1,6 +1,5 @@
 package net.uniquecomputer.lockqr
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -13,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentTransaction
 import net.uniquecomputer.lockqr.Utils.Helper
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import java.io.File
