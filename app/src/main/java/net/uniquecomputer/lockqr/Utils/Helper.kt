@@ -7,7 +7,7 @@ import com.google.zxing.qrcode.QRCodeWriter
 
 class Helper {
     companion object {
-        fun generateQrCodeSms(recipient: String, message: String): Bitmap? {
+        fun generateQrCodeSms(recipient: String, message: String, color: Int): Bitmap? {
 
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(
@@ -21,13 +21,17 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    if (color != null) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                    } else {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
                 }
             }
             return bitmap
         }
 
-        fun generateQrCodemail(mail: String, content: String): Bitmap? {
+        fun generateQrCodemail(mail: String, content: String, getColor: Int): Bitmap? {
 
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(
@@ -41,7 +45,11 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    if (getColor != null) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) getColor else Color.WHITE)
+                    } else {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
                 }
             }
             return bitmap
@@ -73,7 +81,7 @@ class Helper {
             return bitmap
         }
 
-        fun generateQrCode(text: String): Bitmap? {
+        fun generateQrCode(text: String,color: Int): Bitmap? {
 
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(text, BarcodeFormat.QR_CODE, 512, 512)
@@ -82,13 +90,25 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    if (color != null) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                    } else {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
                 }
             }
             return bitmap
         }
 
-        fun generateQrCodeContact(name: String, phone: String, email: String, company: String, jobTitle: String, address: String): Bitmap? {
+        fun generateQrCodeContact(
+            name: String,
+            phone: String,
+            email: String,
+            company: String,
+            jobTitle: String,
+            address: String,
+            color: Int
+        ): Bitmap? {
 
                 val writer = QRCodeWriter()
                 val bitMatrix = writer.encode(
@@ -102,13 +122,17 @@ class Helper {
                 val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
                 for (x in 0 until width) {
                     for (y in 0 until height) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        if (color != null) {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                        } else {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        }
                     }
                 }
                 return bitmap
         }
 
-        fun generateQrCodeCalendar(event: String, location: String, address: String): Bitmap? {
+        fun generateQrCodeCalendar(event: String, location: String, address: String, color: Int): Bitmap? {
 
                 val writer = QRCodeWriter()
                 val bitMatrix = writer.encode(
@@ -122,7 +146,11 @@ class Helper {
                 val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
                 for (x in 0 until width) {
                     for (y in 0 until height) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        if (color != null) {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                        } else {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        }
                     }
                 }
                 return bitmap

@@ -40,8 +40,7 @@ class QRCode : AppCompatActivity() {
                 .setColorListener { color, colorHex ->
                     // Handle Color Selection
                     var pickColor = color
-
-
+                    intent.putExtra("color",pickColor)
                 }
                 .show()
 
@@ -61,18 +60,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Text"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -99,6 +100,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val web = binding.nameEt.text.toString().trim()
                     val protocol = binding.autoprotocol.text.toString()
+                    var getColor = intent.getIntExtra("color",0)
                     val www = "://www."
                     val text = protocol + www + web
                     checkprotocol()
@@ -107,12 +109,13 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -130,6 +133,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     val content = binding.addressEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (!Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
                         binding.name.error = "Please Enter Valid Email"
@@ -143,11 +147,12 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodemail(text, content)
+                        val bitmap = Helper.generateQrCodemail(text, content, getColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -166,6 +171,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val recipient = binding.nameEt.text.toString().trim()
                     val message = binding.addressEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (!Patterns.PHONE.matcher(recipient).matches()) {
                         binding.name.error = "Please Enter Valid Number"
@@ -179,11 +185,12 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodeSms(recipient, message)
+                        val bitmap = Helper.generateQrCodeSms(recipient, message, getColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -202,8 +209,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val network_name = binding.nameEt.text.toString().trim()
                     val pass = binding.emailEt.text.toString().trim()
-
-                    var pickColor = binding.colorPicker.solidColor
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (network_name.isEmpty()) {
                         binding.name.error = "Please Enter Network Name"
@@ -217,11 +223,12 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodeWifi(network_name, pass, pickColor)
+                        val bitmap = Helper.generateQrCodeWifi(network_name, pass, getColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -237,18 +244,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (!Patterns.PHONE.matcher(text).matches()) {
                         binding.name.error = "Please Enter Valid Number"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -271,6 +280,7 @@ class QRCode : AppCompatActivity() {
                     val company = binding.companyEt.text.toString().trim()
                     val jobTitle = binding.jobTitleEt.text.toString().trim()
                     val address = binding.addressEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (name.isEmpty()) {
                         binding.name.error = "Please Enter Name"
@@ -304,11 +314,12 @@ class QRCode : AppCompatActivity() {
                         binding.company.clearFocus()
                         binding.jobTitle.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodeContact(name, phone, email, company, jobTitle, address)
+                        val bitmap = Helper.generateQrCodeContact(name, phone, email, company, jobTitle, address, getColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -328,6 +339,7 @@ class QRCode : AppCompatActivity() {
                     val event = binding.nameEt.text.toString().trim()
                     val location = binding.jobTitleEt.text.toString().trim()
                     val address = binding.addressEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (event.isEmpty()) {
                         binding.name.error = "Please Enter Event Name"
@@ -345,11 +357,12 @@ class QRCode : AppCompatActivity() {
                         binding.name.clearFocus()
                         binding.address.clearFocus()
                         binding.jobTitle.clearFocus()
-                        val bitmap = Helper.generateQrCodeCalendar(event, location, address)
+                        val bitmap = Helper.generateQrCodeCalendar(event, location, address, getColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -368,18 +381,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Youtube Link"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -398,18 +413,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Whatsapp Number"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -427,18 +444,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter FaceBook Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -456,18 +475,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Twitter Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -484,18 +505,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Linkedin url"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -511,18 +534,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Instagram Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -543,18 +568,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Telegram Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -573,18 +600,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Messenger Url"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -601,18 +630,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Song Url"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text, getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -631,17 +662,19 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Snapchat Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text,getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
+                        binding.colorPicker.isVisible = false
                         binding.download.isVisible = true
                         downloadQr()
                         shareQr()
@@ -660,18 +693,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Skype Profile Link"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text,getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -689,18 +724,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Paypal Username"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text,getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -717,18 +754,20 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
+                    var getColor = intent.getIntExtra("color",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Pinterest url"
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text)
+                        val bitmap = Helper.generateQrCode(text,getColor)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
                         binding.download.isVisible = true
+                        binding.colorPicker.isVisible = false
                         downloadQr()
                         shareQr()
                     }
@@ -747,7 +786,7 @@ class QRCode : AppCompatActivity() {
             Toast.makeText(this, "Please Select a Protocol", Toast.LENGTH_SHORT).show()
         } else {
             binding.autoprotocol.error = null
-            Helper.generateQrCode(protocol)
+            Helper.generateQrCode(protocol, 0)
         }
 
     }
