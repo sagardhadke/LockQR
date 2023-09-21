@@ -21,7 +21,6 @@
 * 📣 100% FREE & No Ads!
 * Dark/Light Mode
 * Easily create your own unlimited non-expiring QR codes in a matter of seconds
-* Custom Text
 * Download QR Code
 * Share QR Code to Any Social Media platform
 * Smooth Ui/Experience
