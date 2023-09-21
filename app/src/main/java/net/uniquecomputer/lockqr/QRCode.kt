@@ -31,7 +31,7 @@ class QRCode : AppCompatActivity() {
         setContentView(binding.root)
         checkposition()
 
-        binding.qrcode.setOnClickListener {
+        binding.colorPicker.setOnClickListener {
             colorPicker()
         }
 

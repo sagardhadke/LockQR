@@ -36,6 +36,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/generate_text" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/colorPicker"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            app:cardCornerRadius="45dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/qrcode"
+            app:layout_constraintStart_toStartOf="@+id/qrcode"
+            app:layout_constraintTop_toBottomOf="@+id/qrcode">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/colorpicker" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Pick Color"
+                    android:textColor="#08b690"
+                    android:textSize="18sp"
+                    android:layout_marginTop="2dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <TextView
             android:id="@+id/note"
             android:layout_width="wrap_content"
@@ -50,7 +85,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qrcode" />
+            app:layout_constraintTop_toBottomOf="@+id/colorPicker" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/protocol"
