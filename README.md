@@ -27,7 +27,7 @@
 * You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
 * Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
-## Screenshots
+# 🎬Preview
 
 ![App Screenshot](https://github.com/SagarDhadke/LockQR/assets/70995022/c9399873-27d8-4025-a757-733fb72701cd)
 
@@ -52,6 +52,12 @@ Lottie Animations
 
 ```bash
    implementation "com.airbnb.android:lottie:6.1.0"
+```
+
+ColorPicker
+
+```bash
+   implementation "com.github.Dhaval2404:ColorPicker:2.3"
 ```
 
 
