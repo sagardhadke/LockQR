@@ -47,7 +47,7 @@ class Helper {
             return bitmap
         }
 
-        fun generateQrCodeWifi(networkName: String, pass: String): Bitmap? {
+        fun generateQrCodeWifi(networkName: String, pass: String, color: Int): Bitmap? {
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(
                 "Network name:- $networkName\n Password:- $pass",
@@ -60,7 +60,14 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+
+                    if (color != null) {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                    } else {
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    }
+
+//                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                 }
             }
             return bitmap

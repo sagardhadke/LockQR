@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
-import androidx.fragment.app.FragmentTransaction
-import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
 import com.github.dhaval2404.colorpicker.model.ColorSwatch
@@ -32,26 +30,22 @@ class QRCode : AppCompatActivity() {
         checkposition()
 
         binding.colorPicker.setOnClickListener {
-            colorPicker()
+
+            MaterialColorPickerDialog
+                .Builder(this)                            // Pass Activity Instance
+                .setTitle("Pick Color")                // Default "Choose Color"
+                .setColorShape(ColorShape.SQAURE)    // Default ColorShape.CIRCLE
+                .setColorSwatch(ColorSwatch._300)    // Default ColorSwatch._500
+                .setDefaultColor(R.color.black)        // Pass Default Color
+                .setColorListener { color, colorHex ->
+                    // Handle Color Selection
+                    var pickColor = color
+
+
+                }
+                .show()
+
         }
-
-    }
-
-    private fun colorPicker(){
-
-
-        MaterialColorPickerDialog
-            .Builder(this)        					// Pass Activity Instance
-            .setTitle("Pick Theme")           		// Default "Choose Color"
-            .setColorShape(ColorShape.SQAURE)   	// Default ColorShape.CIRCLE
-            .setColorSwatch(ColorSwatch._300)   	// Default ColorSwatch._500
-            .setDefaultColor(titleColor) 		// Pass Default Color
-            .setColorListener { color, colorHex ->
-                // Handle Color Selection
-                binding.generateText.setTextColor(color)
-            }
-            .show()
-
 
     }
 
@@ -209,6 +203,8 @@ class QRCode : AppCompatActivity() {
                     val network_name = binding.nameEt.text.toString().trim()
                     val pass = binding.emailEt.text.toString().trim()
 
+                    var pickColor = binding.colorPicker.solidColor
+
                     if (network_name.isEmpty()) {
                         binding.name.error = "Please Enter Network Name"
                         binding.name.requestFocus()
@@ -221,7 +217,7 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodeWifi(network_name, pass)
+                        val bitmap = Helper.generateQrCodeWifi(network_name, pass, pickColor)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true
