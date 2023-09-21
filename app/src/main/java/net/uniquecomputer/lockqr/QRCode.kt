@@ -39,7 +39,7 @@ class QRCode : AppCompatActivity() {
 
     private fun colorPicker(){
 
-        // Kotlin Code
+
         MaterialColorPickerDialog
             .Builder(this)        					// Pass Activity Instance
             .setTitle("Pick Theme")           		// Default "Choose Color"
