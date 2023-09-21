@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentTransaction
+import com.github.dhaval2404.colorpicker.ColorPickerDialog
+import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
+import com.github.dhaval2404.colorpicker.model.ColorShape
+import com.github.dhaval2404.colorpicker.model.ColorSwatch
 import net.uniquecomputer.lockqr.Utils.Helper
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import java.io.File
@@ -26,6 +30,29 @@ class QRCode : AppCompatActivity() {
         binding = ActivityQrcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         checkposition()
+
+        binding.qrcode.setOnClickListener {
+            colorPicker()
+        }
+
+    }
+
+    private fun colorPicker(){
+
+        // Kotlin Code
+        MaterialColorPickerDialog
+            .Builder(this)        					// Pass Activity Instance
+            .setTitle("Pick Theme")           		// Default "Choose Color"
+            .setColorShape(ColorShape.SQAURE)   	// Default ColorShape.CIRCLE
+            .setColorSwatch(ColorSwatch._300)   	// Default ColorSwatch._500
+            .setDefaultColor(titleColor) 		// Pass Default Color
+            .setColorListener { color, colorHex ->
+                // Handle Color Selection
+                binding.generateText.setTextColor(color)
+            }
+            .show()
+
+
     }
 
     private fun checkposition() {
