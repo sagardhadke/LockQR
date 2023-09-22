@@ -11,8 +11,8 @@
         android:id="@+id/app_logo_splash"
         android:layout_width="250dp"
         android:layout_height="110dp"
-        android:src="@drawable/applogo"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:src="@drawable/applogo" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="match_parent"
