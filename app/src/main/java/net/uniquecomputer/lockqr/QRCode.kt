@@ -32,13 +32,12 @@ class QRCode : AppCompatActivity() {
         binding.colorPicker.setOnClickListener {
 
             MaterialColorPickerDialog
-                .Builder(this)                            // Pass Activity Instance
-                .setTitle("Pick Color")                // Default "Choose Color"
-                .setColorShape(ColorShape.SQAURE)    // Default ColorShape.CIRCLE
-                .setColorSwatch(ColorSwatch._300)    // Default ColorSwatch._500
-                .setDefaultColor(R.color.black)        // Pass Default Color
+                .Builder(this)
+                .setTitle("Pick Color")
+                .setColorShape(ColorShape.SQAURE)
+                .setColorSwatch(ColorSwatch._300)
+                .setDefaultColor(R.color.black)
                 .setColorListener { color, colorHex ->
-                    // Handle Color Selection
                     var pickColor = color
                     intent.putExtra("color",pickColor)
                 }
