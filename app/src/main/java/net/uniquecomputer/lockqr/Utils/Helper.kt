@@ -1,12 +1,9 @@
 package net.uniquecomputer.lockqr.Utils
 
-import android.app.Dialog
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
-import net.uniquecomputer.lockqr.R
 
 class Helper {
     companion object {
@@ -77,8 +74,6 @@ class Helper {
                     } else {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                     }
-
-//                    bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                 }
             }
             return bitmap
