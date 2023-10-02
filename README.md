@@ -83,6 +83,7 @@ ColorPicker
 
 - 😊 Major Bug Fix in Home Layout.
 - Added UI Dark/Light System Default Mode Changing Option in Home Layout
+- 19 Premium Color Now Available on 1.3 Update
 
 ## Feedback
 
