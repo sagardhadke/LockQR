@@ -20,6 +20,7 @@
 
 * 📣 100% FREE & No Ads!
 * Dark/Light Mode
+* 19 Premium Colors QR Code Now Available on 1.3 Update
 * Easily create your own unlimited non-expiring QR codes in a matter of seconds
 * Download QR Code
 * Share QR Code to Any Social Media platform
