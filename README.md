@@ -70,7 +70,7 @@ ColorPicker
 - Download QR Code 
 - Share QR Code to Any Social Media platform
 
-## 1.2 App Version Features Now Live
+## 1.2 App Version Features
 
 - Generate QR Code 100% Free
 - Light/Dark Mode App
@@ -80,7 +80,7 @@ ColorPicker
 - You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
 - Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
-## 1.3 App Version Features
+## 1.3 App Version Features Now Live
 
 - 😊 Major Bug Fix in Home Layout.
 - Added UI Dark/Light System Default Mode Changing Option in Home Layout
