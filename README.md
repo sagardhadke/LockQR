@@ -41,7 +41,7 @@
 
 
 
-## We use all this library in this lock QR Code app
+## We use all this library in this LockQR Code app
 
 QR Code Generator 
 
