@@ -41,7 +41,7 @@
 
 
 
-## QR Code Libraries and Lottie Animation
+## We use all this library in this lock QR Code app
 
 QR Code Generator 
 
