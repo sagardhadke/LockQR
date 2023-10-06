@@ -40,10 +40,11 @@
             android:id="@+id/colorPicker"
             android:layout_width="145dp"
             android:layout_height="45dp"
-            app:cardCornerRadius="45dp"
             android:backgroundTint="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/qrcode"
-            app:layout_constraintStart_toStartOf="@+id/qrcode"
+            app:cardCornerRadius="45dp"
+            app:layout_constraintEnd_toStartOf="@+id/colorPicker_Bg"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qrcode">
 
             <LinearLayout
@@ -61,12 +62,48 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Pick Color"
                     android:textColor="#08b690"
                     android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/colorPicker_Bg"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/colorPicker"
+            app:layout_constraintTop_toBottomOf="@+id/qrcode">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/background_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Bg Color"
+                    android:textColor="#08b690"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -81,8 +118,8 @@
             android:text="Note:- Don't Use https:// or www. in URL"
             android:textColor="@color/text_background"
             android:textSize="15sp"
-            android:visibility="gone"
             android:textStyle="italic"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/colorPicker" />
@@ -132,8 +169,8 @@
                 android:id="@+id/name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:autofillHints="clipboard"
+                android:inputType="textPersonName"
                 android:textColor="@color/input" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -245,11 +282,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="@color/text_background"
             android:layout_marginEnd="16dp"
             android:visibility="gone"
             app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="@color/text_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/job_title">
