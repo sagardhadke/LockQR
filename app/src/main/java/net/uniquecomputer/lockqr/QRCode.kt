@@ -46,20 +46,19 @@ class QRCode : AppCompatActivity() {
 
         }
 
-//        binding.colorPickerBg.setOnClickListener {
-//            // Kotlin Code
-//            ColorPickerDialog
-//                .Builder(this)        				// Pass Activity Instance
-//                .setTitle("Pick Theme")           	// Default "Choose Color"
-//                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
-//                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
-//                .setColorListener { color, colorHex ->
-//                    // Handle Color Selection
-//                    var pickColor = color
-//                    binding.qrcode.setBackgroundColor(pickColor)
-//                }
-//                .show()
-//        }
+        binding.colorPickerBg.setOnClickListener {
+            ColorPickerDialog
+                .Builder(this)        				// Pass Activity Instance
+                .setTitle("Pick Theme")           	// Default "Choose Color"
+                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
+                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
+                .setColorListener { color, colorHex ->
+                    // Handle Color Selection
+                    var pickColor = color
+                    binding.qrcode.setBackgroundColor(pickColor)
+                }
+                .show()
+        }
 
     }
 

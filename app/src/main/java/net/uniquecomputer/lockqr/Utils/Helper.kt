@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
+import net.uniquecomputer.lockqr.R
 
 class Helper {
     companion object {
@@ -24,7 +25,7 @@ class Helper {
                     if (color != null) {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
                     } else {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.parseColor("#CDB293"))
                     }
                 }
             }
