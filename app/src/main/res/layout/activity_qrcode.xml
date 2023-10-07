@@ -93,7 +93,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
-                    android:src="@drawable/background_bg" />
+                    android:src="@drawable/bgColor" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="input">#000000</color>
+    <color name="qr_bg">#033050</color>
     <color name="button_background">#292f3f</color>
     <color name="app_background">#f5f5f5</color>
     <color name="text_background">#292f3f</color>

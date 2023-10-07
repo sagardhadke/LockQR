@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
+import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
 import com.github.dhaval2404.colorpicker.model.ColorSwatch
@@ -44,6 +45,21 @@ class QRCode : AppCompatActivity() {
                 .show()
 
         }
+
+//        binding.colorPickerBg.setOnClickListener {
+//            // Kotlin Code
+//            ColorPickerDialog
+//                .Builder(this)        				// Pass Activity Instance
+//                .setTitle("Pick Theme")           	// Default "Choose Color"
+//                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
+//                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
+//                .setColorListener { color, colorHex ->
+//                    // Handle Color Selection
+//                    var pickColor = color
+//                    binding.qrcode.setBackgroundColor(pickColor)
+//                }
+//                .show()
+//        }
 
     }
 
