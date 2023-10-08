@@ -5,13 +5,12 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/setColor"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

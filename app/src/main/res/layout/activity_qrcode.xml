@@ -108,6 +108,25 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorPicker">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/colorpalette" />
+
+        </androidx.core.widget.NestedScrollView>
+
         <TextView
             android:id="@+id/note"
             android:layout_width="wrap_content"
@@ -122,7 +141,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/colorPicker" />
+            app:layout_constraintTop_toBottomOf="@+id/scrollview" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/protocol"

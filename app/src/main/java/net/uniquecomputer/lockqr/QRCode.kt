@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
@@ -24,11 +25,27 @@ import java.io.FileOutputStream
 
 class QRCode : AppCompatActivity() {
     private lateinit var binding: ActivityQrcodeBinding
+    private lateinit var colorsAdapter : ColorAdapter
+    private lateinit var colorsArrayList: ArrayList<ColorViewModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQrcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         checkposition()
+
+        colorsArrayList = ArrayList()
+
+//        colorsArrayList.add(ColorViewModel(R.array.themeColorHex))
+//
+//        colorsArrayList.add(ColorViewModel(R.color.white))
+//        colorsArrayList.add(ColorViewModel(R.color.qr))
+//        colorsArrayList.add(ColorViewModel(R.color.qr_bg))
+//        colorsArrayList.add(ColorViewModel(R.color.qr_code))
+
+        colorsAdapter = ColorAdapter(this, colorsArrayList)
+        binding.recyclerview.adapter = colorsAdapter
+        binding.recyclerview.setHasFixedSize(true)
+        binding.recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         binding.colorPicker.setOnClickListener {
 
