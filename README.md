@@ -86,6 +86,13 @@ ColorPicker
 - Added UI Dark/Light System Default Mode Changing Option in Home Layout
 - 19 Premium Color Now Available on 1.3 Update
 
+## 1.4 App Version Features Coming Soon
+
+- Bugs Fix / Improvement.
+- Custom Background in QR-Code.
+- 10+ Premium pre-Build Creative Custom Background Design.
+- New UI coming soon.
+
 ## Feedback
 
 If you have any feedback, please reach out to us at peaceunique2003@gmail.com
