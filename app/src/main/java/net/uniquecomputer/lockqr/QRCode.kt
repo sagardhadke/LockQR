@@ -36,11 +36,11 @@ class QRCode : AppCompatActivity() {
         colorsArrayList = ArrayList()
 
 //        colorsArrayList.add(ColorViewModel(R.array.themeColorHex))
-//
-//        colorsArrayList.add(ColorViewModel(R.color.white))
-//        colorsArrayList.add(ColorViewModel(R.color.qr))
-//        colorsArrayList.add(ColorViewModel(R.color.qr_bg))
-//        colorsArrayList.add(ColorViewModel(R.color.qr_code))
+
+        colorsArrayList.add(ColorViewModel(R.color.white))
+        colorsArrayList.add(ColorViewModel(R.color.qr))
+        colorsArrayList.add(ColorViewModel(R.color.qr_bg))
+        colorsArrayList.add(ColorViewModel(R.color.qr_code))
 
         colorsAdapter = ColorAdapter(this, colorsArrayList)
         binding.recyclerview.adapter = colorsAdapter
