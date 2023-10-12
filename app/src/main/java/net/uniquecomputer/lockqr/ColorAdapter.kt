@@ -20,8 +20,8 @@ class ColorAdapter(val context: Context, private val colorsArrayList:ArrayList<C
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //set background color to card-view
-        holder.binding.setColor.setCardBackgroundColor(colorsArrayList[position].colorHax)
+        holder.binding.setColor.setBackgroundResource(colorsArrayList[position].colorHax)
+//        holder.binding.setColor.setCardBackgroundColor(colorsArrayList[position].colorHax)
 
     }
 
