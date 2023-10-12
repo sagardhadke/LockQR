@@ -41,8 +41,10 @@ class QRCode : AppCompatActivity() {
         colorsArrayList.add(ColorViewModel(R.color.qr))
         colorsArrayList.add(ColorViewModel(R.color.qr_bg))
         colorsArrayList.add(ColorViewModel(R.color.qr_code))
+        colorsArrayList.add(ColorViewModel(R.color.black))
 
-        colorsAdapter = ColorAdapter(this, colorsArrayList)
+
+        colorsAdapter = ColorAdapter(this, colorsArrayList, binding)
         binding.recyclerview.adapter = colorsAdapter
         binding.recyclerview.setHasFixedSize(true)
         binding.recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
