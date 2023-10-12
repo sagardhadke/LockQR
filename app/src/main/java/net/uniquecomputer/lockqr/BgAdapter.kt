@@ -1,14 +1,13 @@
 package net.uniquecomputer.lockqr
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import net.uniquecomputer.lockqr.databinding.ColorpaletteBinding
 
-class ColorAdapter(var context: Context, private val colorsArrayList:ArrayList<ColorViewModel>, val newBinding : ActivityQrcodeBinding) : RecyclerView.Adapter<ColorAdapter.ViewHolder>(){
+class BgAdapter(var context: Context, private val bgArrayList:ArrayList<BgViewModel>, val newBinding : ActivityQrcodeBinding) : RecyclerView.Adapter<BgAdapter.ViewHolder>(){
 
     inner class ViewHolder( val binding: ColorpaletteBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -18,15 +17,15 @@ class ColorAdapter(var context: Context, private val colorsArrayList:ArrayList<C
     }
 
     override fun getItemCount(): Int {
-        return colorsArrayList.size
+        return bgArrayList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.setColor.setBackgroundResource(colorsArrayList[position].colorHax)
+        holder.binding.setColor.setBackgroundResource(bgArrayList[position].colorHax)
 //        holder.binding.setColor.setCardBackgroundColor(colorsArrayList[position].colorHax)
         holder.itemView.setOnClickListener {
-            val color = colorsArrayList[position].colorHax
-            newBinding.qrcode.setColorFilter(color)
+            val bg = bgArrayList[position].colorHax
+            newBinding.qrcode.setBackgroundResource(bg)
         }
 
     }

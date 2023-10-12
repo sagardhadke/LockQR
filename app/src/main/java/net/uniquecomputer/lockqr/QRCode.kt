@@ -25,27 +25,28 @@ import java.io.FileOutputStream
 
 class QRCode : AppCompatActivity() {
     private lateinit var binding: ActivityQrcodeBinding
-    private lateinit var colorsAdapter : ColorAdapter
-    private lateinit var colorsArrayList: ArrayList<ColorViewModel>
+    private lateinit var bgAdapter : BgAdapter
+    private lateinit var bgArrayList: ArrayList<BgViewModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQrcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         checkposition()
 
-        colorsArrayList = ArrayList()
+        bgArrayList = ArrayList()
 
 //        colorsArrayList.add(ColorViewModel(R.array.themeColorHex))
 
-        colorsArrayList.add(ColorViewModel(R.color.white))
-        colorsArrayList.add(ColorViewModel(R.color.qr))
-        colorsArrayList.add(ColorViewModel(R.color.qr_bg))
-        colorsArrayList.add(ColorViewModel(R.color.qr_code))
-        colorsArrayList.add(ColorViewModel(R.color.black))
+        bgArrayList.add(BgViewModel(R.drawable.bg1))
+        bgArrayList.add(BgViewModel(R.drawable.bg2))
+        bgArrayList.add(BgViewModel(R.drawable.bg3))
+        bgArrayList.add(BgViewModel(R.drawable.bg4))
+        bgArrayList.add(BgViewModel(R.drawable.bg5))
+        bgArrayList.add(BgViewModel(R.drawable.bg6))
 
 
-        colorsAdapter = ColorAdapter(this, colorsArrayList, binding)
-        binding.recyclerview.adapter = colorsAdapter
+        bgAdapter = BgAdapter(this, bgArrayList, binding)
+        binding.recyclerview.adapter = bgAdapter
         binding.recyclerview.setHasFixedSize(true)
         binding.recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
@@ -59,7 +60,7 @@ class QRCode : AppCompatActivity() {
                 .setDefaultColor(R.color.black)
                 .setColorListener { color, colorHex ->
                     var pickColor = color
-                    intent.putExtra("color",pickColor)
+                    binding.qrcode.setColorFilter(pickColor)
                 }
                 .show()
 
