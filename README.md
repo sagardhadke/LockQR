@@ -70,7 +70,7 @@ ColorPicker
 - Download QR Code 
 - Share QR Code to Any Social Media platform
 
-## 1.2 App Version Features
+## 1.2 App Version Features.
 
 - Generate QR Code 100% Free
 - Light/Dark Mode App
