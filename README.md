@@ -62,7 +62,7 @@ ColorPicker
 ```
 
 
-## 1.1 App Version Features
+## 1.1 App Version Features.
 
 - 📣 100% FREE & No Ads!
 - Easily create your own unlimited non-expiring QR codes in a matter of seconds
