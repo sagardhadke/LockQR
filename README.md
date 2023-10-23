@@ -109,7 +109,6 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 <a href="https://www.buymeacoffee.com/sagardhadke" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-[![Bug me a Coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Donate&style=flat-square)](https://www.buymeacoffee.com/sagardhadke)
 
 ## License:
 ```
