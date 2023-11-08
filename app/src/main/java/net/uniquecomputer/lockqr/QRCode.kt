@@ -96,6 +96,7 @@ class QRCode : AppCompatActivity() {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
 
+
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Text"
                         binding.name.requestFocus()
@@ -168,6 +169,7 @@ class QRCode : AppCompatActivity() {
                     val text = binding.nameEt.text.toString().trim()
                     val content = binding.addressEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bg",0)
 
                     if (!Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
                         binding.name.error = "Please Enter Valid Email"
@@ -181,7 +183,7 @@ class QRCode : AppCompatActivity() {
                         binding.address.error = null
                         binding.name.clearFocus()
                         binding.address.clearFocus()
-                        val bitmap = Helper.generateQrCodemail(text, content, getColor)
+                        val bitmap = Helper.generateQrCodemail(text, content, getColor, getBg)
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
                         binding.share.isVisible = true

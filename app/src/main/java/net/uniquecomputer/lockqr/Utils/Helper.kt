@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
-import net.uniquecomputer.lockqr.R
 
 class Helper {
     companion object {
@@ -32,7 +31,7 @@ class Helper {
             return bitmap
         }
 
-        fun generateQrCodemail(mail: String, content: String, getColor: Int): Bitmap? {
+        fun generateQrCodemail(mail: String, content: String, getColor: Int, getBg: Int): Bitmap? {
 
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(
@@ -47,7 +46,7 @@ class Helper {
             for (x in 0 until width) {
                 for (y in 0 until height) {
                     if (getColor != null) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) getColor else Color.WHITE)
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) getColor else getBg)
                     } else {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                     }
