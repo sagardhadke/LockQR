@@ -27,6 +27,10 @@ class BgAdapter(var context: Context, private val bgArrayList:ArrayList<BgViewMo
         holder.itemView.setOnClickListener {
             val bg = bgArrayList[position].colorHax
             newBinding.qrcode.setBackgroundResource(bg)
+            //send seletected image id to qrcode activity without passing intent to qrcode activity
+            val intent = Intent("custom-message")
+            intent.putExtra("bgC", bg)
+            context.sendBroadcast(intent)
         }
 
     }

@@ -46,7 +46,7 @@ class Helper {
             for (x in 0 until width) {
                 for (y in 0 until height) {
                     if (getColor != null) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) getColor else getBg)
+                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) getColor else Color.WHITE)
                     } else {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                     }
