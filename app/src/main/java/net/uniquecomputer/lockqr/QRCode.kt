@@ -35,6 +35,8 @@ class QRCode : AppCompatActivity() {
 
         bgArrayList = ArrayList()
 
+
+
 //        colorsArrayList.add(ColorViewModel(R.array.themeColorHex))
 
         bgArrayList.add(BgViewModel(R.drawable.bg1))
@@ -60,25 +62,26 @@ class QRCode : AppCompatActivity() {
                 .setDefaultColor(R.color.black)
                 .setColorListener { color, colorHex ->
                     var pickColor = color
+                    intent.putExtra("color",pickColor)
                     binding.qrcode.setColorFilter(pickColor)
                 }
                 .show()
 
         }
 
-        binding.colorPickerBg.setOnClickListener {
-            ColorPickerDialog
-                .Builder(this)        				// Pass Activity Instance
-                .setTitle("Pick Theme")           	// Default "Choose Color"
-                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
-                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
-                .setColorListener { color, colorHex ->
-                    // Handle Color Selection
-                    var pickColor = color
-                    binding.qrcode.setBackgroundColor(pickColor)
-                }
-                .show()
-        }
+//        binding.colorPickerBg.setOnClickListener {
+//            ColorPickerDialog
+//                .Builder(this)        				// Pass Activity Instance
+//                .setTitle("Pick Theme")           	// Default "Choose Color"
+//                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
+//                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
+//                .setColorListener { color, colorHex ->
+//                    // Handle Color Selection
+//                    var pickColorBg = color
+//                    binding.qrcode.setBackgroundColor(pickColorBg)
+//                }
+//                .show()
+//        }
 
     }
 
@@ -95,7 +98,8 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
-
+                    val getBg = intent.getIntExtra("bg",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Text"
@@ -136,6 +140,7 @@ class QRCode : AppCompatActivity() {
                     val web = binding.nameEt.text.toString().trim()
                     val protocol = binding.autoprotocol.text.toString()
                     var getColor = intent.getIntExtra("color",0)
+                    val getBg = intent.getIntExtra("bg",0)
                     val www = "://www."
                     val text = protocol + www + web
                     checkprotocol()
@@ -169,7 +174,7 @@ class QRCode : AppCompatActivity() {
                     val text = binding.nameEt.text.toString().trim()
                     val content = binding.addressEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
-                    var getBg = intent.getIntExtra("bg",0)
+                    var getBg = intent.getIntExtra("bgC",0)
 
                     if (!Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
                         binding.name.error = "Please Enter Valid Email"
