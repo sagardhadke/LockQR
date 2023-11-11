@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import net.uniquecomputer.lockqr.Model.ChildItem
 import net.uniquecomputer.lockqr.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

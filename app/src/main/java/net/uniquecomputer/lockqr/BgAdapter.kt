@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import net.uniquecomputer.lockqr.Model.BgViewModel
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import net.uniquecomputer.lockqr.databinding.ColorpaletteBinding
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import net.uniquecomputer.lockqr.Model.ChildItem
 import net.uniquecomputer.lockqr.databinding.ChildIteamBinding
 
 class ChildAdapter(private val context: Context, private val childItem: List<ChildItem>) : RecyclerView.Adapter<ChildAdapter.ChildViewHolder>() {

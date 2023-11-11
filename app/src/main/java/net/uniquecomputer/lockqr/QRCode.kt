@@ -17,6 +17,7 @@ import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
 import com.github.dhaval2404.colorpicker.model.ColorSwatch
+import net.uniquecomputer.lockqr.Model.BgViewModel
 import net.uniquecomputer.lockqr.Utils.Helper
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
 import java.io.File
@@ -69,19 +70,19 @@ class QRCode : AppCompatActivity() {
 
         }
 
-//        binding.colorPickerBg.setOnClickListener {
-//            ColorPickerDialog
-//                .Builder(this)        				// Pass Activity Instance
-//                .setTitle("Pick Theme")           	// Default "Choose Color"
-//                .setColorShape(ColorShape.SQAURE)   // Default ColorShape.CIRCLE
-//                .setDefaultColor(R.color.qr_bg)     // Pass Default Color
-//                .setColorListener { color, colorHex ->
-//                    // Handle Color Selection
-//                    var pickColorBg = color
-//                    binding.qrcode.setBackgroundColor(pickColorBg)
-//                }
-//                .show()
-//        }
+        binding.colorPickerBg.setOnClickListener {
+            ColorPickerDialog
+                .Builder(this)
+                .setTitle("Pick Theme")
+                .setColorShape(ColorShape.SQAURE)
+                .setDefaultColor(R.color.qr_bg)
+                .setColorListener { color, colorHex ->
+                    var pickColorBg = color
+                    intent.putExtra("bg",pickColorBg)
+                    binding.qrcode.setBackgroundColor(pickColorBg)
+                }
+                .show()
+        }
 
     }
 
@@ -106,7 +107,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -150,7 +151,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -254,6 +255,7 @@ class QRCode : AppCompatActivity() {
                     val network_name = binding.nameEt.text.toString().trim()
                     val pass = binding.emailEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (network_name.isEmpty()) {
@@ -290,6 +292,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (!Patterns.PHONE.matcher(text).matches()) {
@@ -297,7 +300,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -430,6 +433,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -437,7 +441,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -463,6 +467,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -470,7 +475,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -495,6 +500,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -502,7 +508,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -527,6 +533,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -534,7 +541,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -558,6 +565,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -565,7 +573,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -588,6 +596,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -595,7 +604,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -623,6 +632,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -630,7 +640,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -656,6 +666,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -663,7 +674,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -687,6 +698,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -694,7 +706,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text, getColor)
+                        val bitmap = Helper.generateQrCode(text, getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -720,6 +732,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -727,7 +740,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text,getColor)
+                        val bitmap = Helper.generateQrCode(text,getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -752,6 +765,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -759,7 +773,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text,getColor)
+                        val bitmap = Helper.generateQrCode(text,getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -784,6 +798,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -791,7 +806,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text,getColor)
+                        val bitmap = Helper.generateQrCode(text,getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -815,6 +830,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    var getBg = intent.getIntExtra("bgC",0)
                     binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
@@ -822,7 +838,7 @@ class QRCode : AppCompatActivity() {
                         binding.name.requestFocus()
                     } else {
                         binding.name.clearFocus()
-                        val bitmap = Helper.generateQrCode(text,getColor)
+                        val bitmap = Helper.generateQrCode(text,getColor,getBg)
                         binding.name.error = null
                         binding.qrcode.setImageBitmap(bitmap)
                         binding.generateText.text = "Congratulations! \n You've Created a QR Code!"
@@ -847,7 +863,7 @@ class QRCode : AppCompatActivity() {
             Toast.makeText(this, "Please Select a Protocol", Toast.LENGTH_SHORT).show()
         } else {
             binding.autoprotocol.error = null
-            Helper.generateQrCode(protocol, 0)
+            Helper.generateQrCode(protocol, 0,0)
         }
 
     }
