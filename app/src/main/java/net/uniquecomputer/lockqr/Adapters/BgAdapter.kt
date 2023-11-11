@@ -1,4 +1,4 @@
-package net.uniquecomputer.lockqr
+package net.uniquecomputer.lockqr.Adapters
 
 import android.content.Context
 import android.content.Intent

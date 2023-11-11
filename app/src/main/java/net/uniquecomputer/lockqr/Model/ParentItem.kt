@@ -1,4 +1,4 @@
-package net.uniquecomputer.lockqr
+package net.uniquecomputer.lockqr.Model
 
 import net.uniquecomputer.lockqr.Model.ChildItem
 

@@ -17,6 +17,7 @@ import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.MaterialColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
 import com.github.dhaval2404.colorpicker.model.ColorSwatch
+import net.uniquecomputer.lockqr.Adapters.BgAdapter
 import net.uniquecomputer.lockqr.Model.BgViewModel
 import net.uniquecomputer.lockqr.Utils.Helper
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
