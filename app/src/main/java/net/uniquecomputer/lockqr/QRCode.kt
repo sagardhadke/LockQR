@@ -138,6 +138,7 @@ class QRCode : AppCompatActivity() {
 
                 binding.generator.setOnClickListener {
                     val web = binding.nameEt.text.toString().trim()
+                    binding.qrcode.setColorFilter(0)
                     val protocol = binding.autoprotocol.text.toString()
                     var getColor = intent.getIntExtra("color",0)
                     val getBg = intent.getIntExtra("bg",0)
@@ -173,6 +174,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     val content = binding.addressEt.text.toString().trim()
+                    binding.qrcode.setColorFilter(0)
                     var getColor = intent.getIntExtra("color",0)
                     var getBg = intent.getIntExtra("bgC",0)
 
@@ -212,6 +214,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val recipient = binding.nameEt.text.toString().trim()
                     val message = binding.addressEt.text.toString().trim()
+                    binding.qrcode.setColorFilter(0)
                     var getColor = intent.getIntExtra("color",0)
 
                     if (!Patterns.PHONE.matcher(recipient).matches()) {
@@ -251,6 +254,7 @@ class QRCode : AppCompatActivity() {
                     val network_name = binding.nameEt.text.toString().trim()
                     val pass = binding.emailEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (network_name.isEmpty()) {
                         binding.name.error = "Please Enter Network Name"
@@ -286,6 +290,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (!Patterns.PHONE.matcher(text).matches()) {
                         binding.name.error = "Please Enter Valid Number"
@@ -322,6 +327,7 @@ class QRCode : AppCompatActivity() {
                     val jobTitle = binding.jobTitleEt.text.toString().trim()
                     val address = binding.addressEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (name.isEmpty()) {
                         binding.name.error = "Please Enter Name"
@@ -381,6 +387,7 @@ class QRCode : AppCompatActivity() {
                     val location = binding.jobTitleEt.text.toString().trim()
                     val address = binding.addressEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (event.isEmpty()) {
                         binding.name.error = "Please Enter Event Name"
@@ -423,6 +430,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Youtube Link"
@@ -455,6 +463,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Whatsapp Number"
@@ -486,6 +495,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter FaceBook Username"
@@ -517,6 +527,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Twitter Username"
@@ -547,6 +558,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Linkedin url"
@@ -576,6 +588,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Instagram Username"
@@ -610,6 +623,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Telegram Username"
@@ -642,6 +656,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Messenger Url"
@@ -672,6 +687,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Song Url"
@@ -704,6 +720,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Snapchat Username"
@@ -735,6 +752,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Skype Profile Link"
@@ -766,6 +784,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Paypal Username"
@@ -796,6 +815,7 @@ class QRCode : AppCompatActivity() {
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
                     var getColor = intent.getIntExtra("color",0)
+                    binding.qrcode.setColorFilter(0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Pinterest url"
