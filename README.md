@@ -90,6 +90,7 @@ ColorPicker
 
 - Bugs Fix / Improvement.
 - Custom Background in QR-Code.
+- Premium QR Codes.
 - 10+ Premium pre-Build Creative Custom Background Design.
 - New UI coming soon.
 
