@@ -111,9 +111,7 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 Donate Using Upi
 
 ```bash
-   implementation "sagardhadke@upi"
+   sagardhadke@upi
 ```
-
-Donate using Upi :- sagardhadke12@upi
 
 <a href="https://www.buymeacoffee.com/sagardhadke" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
