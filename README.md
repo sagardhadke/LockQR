@@ -16,7 +16,7 @@
 </p>
 </br>
 
-# 🐱‍🏍Features:
+# 🐱‍🏍 Features:
 
 * 📣 100% FREE & No Ads!
 * Dark/Light Mode
