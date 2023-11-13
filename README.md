@@ -16,7 +16,7 @@
 </p>
 </br>
 
-# 🐱‍🏍Features:
+# 🐱‍🏍 Features:
 
 * 📣 100% FREE & No Ads!
 * Dark/Light Mode
@@ -86,10 +86,11 @@ ColorPicker
 - Added UI Dark/Light System Default Mode Changing Option in Home Layout
 - 19 Premium Color Now Available on 1.3 Update
 
-## 1.4 App Version Features Coming Soon.
+## 1.4 App Version Features Coming Soon In new year.
 
 - Bugs Fix / Improvement.
 - Custom Background in QR-Code.
+- Premium QR-Codes.
 - 10+ Premium pre-Build Creative Custom Background Design.
 - New UI coming soon.
 
@@ -106,5 +107,11 @@ If you have any feedback, please reach out to us at peaceunique2003@gmail.com
 
 ## Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :) 
+
+Donate Using Upi
+
+```bash
+   sagardhadke@upi
+```
 
 <a href="https://www.buymeacoffee.com/sagardhadke" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
