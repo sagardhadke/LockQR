@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import net.uniquecomputer.lockqr.Model.BgViewModel
 import net.uniquecomputer.lockqr.databinding.ActivityQrcodeBinding
@@ -24,13 +25,11 @@ class BgAdapter(var context: Context, private val bgArrayList:ArrayList<BgViewMo
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.setColor.setBackgroundResource(bgArrayList[position].colorHax)
-//        holder.binding.setColor.setCardBackgroundColor(colorsArrayList[position].colorHax)
         holder.itemView.setOnClickListener {
             val bg = bgArrayList[position].colorHax
             newBinding.qrcode.setBackgroundResource(bg)
-            //send seletected image id to qrcode activity without passing intent to qrcode activity
             val intent = Intent("custom-message")
-            intent.putExtra("bgC", bg)
+            intent.putExtra("bgImg", bg)
             context.sendBroadcast(intent)
         }
 
