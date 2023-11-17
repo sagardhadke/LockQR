@@ -2,6 +2,7 @@ package net.uniquecomputer.lockqr.Utils
 
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.util.Log
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 
@@ -23,7 +24,7 @@ class Helper {
                 for (y in 0 until height) {
                     if (color != null) {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
-                    } else {
+                    }else {
                         bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.parseColor("#CDB293"))
                     }
                 }
@@ -79,7 +80,7 @@ class Helper {
             return bitmap
         }
 
-        fun generateQrCode(text: String,color: Int,getBg: Int): Bitmap? {
+        fun generateQrCode(text: String,color: Int,getBg: Int): Bitmap {
 
             val writer = QRCodeWriter()
             val bitMatrix = writer.encode(text, BarcodeFormat.QR_CODE, 512, 512)
@@ -88,25 +89,24 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-//                    if (color != null) {
-//                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
-//                    } else {
-//                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
-//                    }
-//
-//                    if (getBg != null) {
-//                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else getBg)
-//                    } else {
-//                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
-//                    }
-
-                    if (color != null && getBg != null) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else getBg)
-                    } else {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                    when {
+                        color != null && getBg != null -> {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else getBg)
+                        }
+                        color != null -> {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
+                        }
+                        getBg != null -> {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.WHITE else getBg)
+                        }
+                        else -> {
+                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+                        }
                     }
+
+
                 }
-            }
+        }
             return bitmap
         }
 
