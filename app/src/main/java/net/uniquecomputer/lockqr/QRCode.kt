@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.InputType
+import android.util.Log
 import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -33,7 +34,7 @@ class QRCode : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQrcodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        checkposition()
+        checkPosition()
 
         bgArrayList = ArrayList()
 
@@ -87,21 +88,22 @@ class QRCode : AppCompatActivity() {
 
     }
 
-    private fun checkposition() {
+    private fun checkPosition() {
 
         when (intent.getIntExtra("position", 0)) {
             0 -> {
                 binding.name.isVisible = true
                 binding.name.hint = "Text"
+                binding.nameEt.setText("Hello")
                 binding.generateText.text = "Generate QR Code for Text"
                 binding.nameEt.inputType = InputType.TYPE_CLASS_TEXT
                 binding.name.clearFocus()
 
                 binding.generator.setOnClickListener {
                     val text = binding.nameEt.text.toString().trim()
-                    var getColor = intent.getIntExtra("color",0)
-                    val getBg = intent.getIntExtra("bg",0)
                     binding.qrcode.setColorFilter(0)
+                    val getColor = intent.getIntExtra("color",0)
+                    val getBg = intent.getIntExtra("bg",0)
 
                     if (binding.nameEt.text!!.isEmpty()) {
                         binding.name.error = "Please Enter Your Text"
