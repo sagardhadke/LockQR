@@ -86,7 +86,7 @@ ColorPicker
 - Added UI Dark/Light System Default Mode Changing Option in Home Layout
 - 19 Premium Color Now Available on 1.3 Update
 
-## 1.4 App Version Features Coming Soon In new year.
+## 1.4 App Version Features Coming Soon.
 
 - Bugs Fix / Improvement.
 - Custom Background in QR-Code.
