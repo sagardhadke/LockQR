@@ -93,6 +93,7 @@ ColorPicker
 - Premium QR-Codes.
 - 10+ Premium pre-Build Creative Custom Background Design.
 - New UI coming soon.
+- New Dark Theme.
 
 ## Feedback
 
