@@ -125,10 +125,6 @@ You can contribute and support this project by doing any of the following:
     </tr>
   </table>
 
-
-## Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :) 
-
 Donate Using Upi
 
 ```bash
