@@ -106,6 +106,26 @@ If you have any feedback, please reach out to us at peaceunique2003@gmail.com
 
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/sagardhadke_uc)
 
+## Support and Donations
+
+You can contribute and support this project by doing any of the following:
+
+* Star the project on GitHub
+* Give feedback
+* Commit PR
+* Contribute your ideas/suggestions
+* Share the project with your friends/colleagues
+* If you love this project, please consider donating. It will inspire me to continue development on the project:
+
+  <table>
+    <tr align="center">
+      <td>
+          <img src="https://github.com/sagardhadke/LockQR/assets/70995022/cb2f50f6-574e-4367-b707-64c3ea8c9887" width="320px" alt="Google Pay QR Code">
+      </td>
+    </tr>
+  </table>
+
+
 ## Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :) 
 
