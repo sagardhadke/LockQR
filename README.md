@@ -25,8 +25,8 @@
 * ✔ Download QR Code
 * 🔄 Share QR Code to Any Social Media platform
 * 🚀 Smooth Ui/Experience
-* You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
-* Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
+* 🌐 You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
+* 📱 Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
 # 🎬 App Preview
 
