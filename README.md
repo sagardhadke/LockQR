@@ -23,8 +23,8 @@
 * ✨ 19 Premium Colors QR Code Now Available on 1.3 Update
 * 🎇 Easily create your own unlimited non-expiring QR codes in a matter of seconds
 * ✔ Download QR Code
-* Share QR Code to Any Social Media platform
-* Smooth Ui/Experience
+* 🔄 Share QR Code to Any Social Media platform
+* 🚀 Smooth Ui/Experience
 * You can generate all types of QR codes, including website links, custom text, WiFi passwords, Email, Contact info, Event info, Location details, Phone numbers, and anything in between.
 * Social media QR codes can also be generated for Instagram, Facebook, WhatsApp, Twitter, Youtube, Linkedin, Spotify etc...
 
