@@ -11,8 +11,6 @@
     <a href="https://sagardhadke.github.io/LockQR/"><img alt="Download LockQR App" src="https://img.shields.io/badge/Download_App-1K+-red"/></a>
 </p>
 
-## ❓ About
-
 <p align="center">  
 🗡️ LockQR is a powerful and user-friendly QR code app that enables you to generate QR codes quickly and easily. It's free and perfect for websites, contact info, and promotional materials. Sharing on social media is seamless too, expanding your reach and connecting with your audience effortlessly. Unlock the potential of QR codes with LockQR, the ultimate tool for convenience and versatility.
 </p>
