@@ -89,26 +89,19 @@ class Helper {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
             for (x in 0 until width) {
                 for (y in 0 until height) {
-                    when {
-                        color != null && getBg != null -> {
-                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else getBg)
-                        }
-                        color != null -> {
-                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) color else Color.WHITE)
-                        }
-                        getBg != null -> {
-                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.WHITE else getBg)
-                        }
-                        else -> {
-                            bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
-                        }
+
+                    val pixelColor = when {
+                        color != null && getBg != null -> if (bitMatrix[x, y]) color else getBg
+                        color != null -> if (bitMatrix[x, y]) color else Color.WHITE
+                        getBg != null -> if (bitMatrix[x, y]) Color.BLACK else getBg
+                        else -> if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
                     }
-
-
+                    bitmap.setPixel(x, y, pixelColor)
                 }
-        }
+            }
             return bitmap
         }
+
 
         fun generateQrCodeContact(
             name: String,

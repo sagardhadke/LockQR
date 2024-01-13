@@ -56,8 +56,8 @@ dependencies {
     //Country Code
     implementation 'com.hbb20:ccp:2.7.2'
 
-    //LOtti animation
-    implementation "com.airbnb.android:lottie:6.1.0"
+    //lottie animation
+    implementation "com.airbnb.android:lottie:6.3.0"
 
     //color picker
     implementation 'com.github.Dhaval2404:ColorPicker:2.3'

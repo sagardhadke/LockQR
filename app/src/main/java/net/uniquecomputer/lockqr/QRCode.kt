@@ -117,6 +117,7 @@ class QRCode : AppCompatActivity() {
                         binding.share.isVisible = true
                         binding.download.isVisible = true
                         binding.colorPicker.isVisible = false
+                        binding.colorPickerBg.isVisible = false
                         downloadQr()
                         shareQr()
                     }
